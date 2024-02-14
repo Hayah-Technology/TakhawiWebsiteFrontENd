@@ -55,10 +55,10 @@ function LayNav() {
               <Link className="nav-link" href="/jobs">الوظائف</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="aboutUs.html">المستثمرين</a>
+              <Link className="nav-link" href="/investors">المستثمرين</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link " aria-current="page" href="index.html">الكباتن</a>
+              <Link className="nav-link " aria-current="page" href="/captainsJoin">الكباتن</Link>
             </li>
             <li className="nav-item lang">
               <button className="active">
