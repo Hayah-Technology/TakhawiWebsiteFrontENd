@@ -86,21 +86,21 @@ function ModalJop() {
                       stroke="#5A42E6"
                       strokeWidth="2"
                       strokeLinecap="round"
-                      stroke-linejoin="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M14.0904 16.7728L11.4388 19.4245C10.5948 20.2682 9.45028 20.7421 8.25694 20.742C7.0636 20.7419 5.91916 20.2678 5.07534 19.4239C4.23152 18.5801 3.75743 17.4357 3.75732 16.2423C3.75722 15.049 4.23112 13.9045 5.0748 13.0605L7.72645 10.4089"
                       stroke="#5A42E6"
                       strokeWidth="2"
                       strokeLinecap="round"
-                      stroke-linejoin="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M17.2727 13.5904L19.9243 10.9388C20.768 10.0948 21.2419 8.95028 21.2418 7.75694C21.2417 6.5636 20.7676 5.41916 19.9238 4.57534C19.0799 3.73152 17.9355 3.25743 16.7422 3.25732C15.5488 3.25722 14.4043 3.73112 13.5603 4.5748L10.9087 7.22645"
                       stroke="#5A42E6"
                       strokeWidth="2"
                       strokeLinecap="round"
-                      stroke-linejoin="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
 
@@ -119,28 +119,28 @@ function ModalJop() {
                       stroke="#5A42E6"
                       strokeWidth="2"
                       strokeLinecap="round"
-                      stroke-linejoin="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M3.5 5.25H21.5V18C21.5 18.1989 21.421 18.3897 21.2803 18.5303C21.1397 18.671 20.9489 18.75 20.75 18.75H4.25C4.05109 18.75 3.86032 18.671 3.71967 18.5303C3.57902 18.3897 3.5 18.1989 3.5 18V5.25Z"
                       stroke="#5A42E6"
                       strokeWidth="2"
                       strokeLinecap="round"
-                      stroke-linejoin="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M10.8638 12L3.73145 18.538"
                       stroke="#5A42E6"
                       strokeWidth="2"
                       strokeLinecap="round"
-                      stroke-linejoin="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M21.2687 18.538L14.1362 11.9999"
                       stroke="#5A42E6"
                       strokeWidth="2"
                       strokeLinecap="round"
-                      stroke-linejoin="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </a>

@@ -17,7 +17,7 @@ function page() {
                   <h3>محاسب AP/AR</h3>
                   <div className="details">
                     <h4>عمل جزئي</h4>
-                    <di v className="loc">
+                    <div className="loc">
                       <svg
                         width="22"
                         height="30"
@@ -46,7 +46,7 @@ function page() {
                       </svg>
 
                       <p>الرياض , السعودية</p>
-                    </di>
+                    </div>
                   </div>
                 </div>
                 <button
@@ -107,7 +107,7 @@ function page() {
                   <h3>مدير منصات تسويقية</h3>
                   <div className="details">
                     <h4>عمل حر</h4>
-                    <di v className="loc">
+                    <div className="loc">
                       <svg
                         width="22"
                         height="30"
@@ -136,7 +136,7 @@ function page() {
                       </svg>
 
                       <p>الرياض , السعودية</p>
-                    </di>
+                    </div>
                   </div>
                 </div>
                 <button
@@ -152,7 +152,7 @@ function page() {
                   <h3>مدير مشروعات</h3>
                   <div className="details">
                     <h4>عمل كلي</h4>
-                    <di v className="loc">
+                    <div className="loc">
                       <svg
                         width="22"
                         height="30"
@@ -181,7 +181,7 @@ function page() {
                       </svg>
 
                       <p>الرياض , السعودية</p>
-                    </di>
+                    </div>
                   </div>
                 </div>
                 <button

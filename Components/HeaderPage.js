@@ -2,7 +2,7 @@
 import React from 'react'
 
 function HeaderPage({title,title2,img}) {
-  console.log(title);
+
   return (
     <section className="headerPages">
     <div className="content">
