@@ -7,7 +7,7 @@ function Footer() {
     <div className="con">
       <div className="content">
         <div className="part1">
-          <div className="footerLogo">
+          <a href='' className="footerLogo">
             <svg width="154" height="122" viewBox="0 0 154 122" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M24.1761 111.213C15.2843 110.544 4.72368 99.2362 3.95147 95.0336C3.17925 90.8309 3.95147 76.8314 3.95147 76.8314C0.748509 37.3791 8.681 26.6755 41.0301 28.9662C98.7379 28.9662 118.109 30.3145 120.581 30.9886C135.252 37.1502 138.619 43.9183 138.783 59.9774C150.761 67.3016 152.278 72.3529 150.244 82.2246C151.531 99.6519 149.273 107.916 122.603 111.213M95.6368 109.865C77.2076 109.338 51.1424 109.865 51.1424 109.865" stroke="#5A42E6" strokeWidth="5" strokeLinecap="round"/>
               <path d="M41.03 46.8315H108.449" stroke="#5A42E6" strokeWidth="5" strokeLinecap="round"/>
@@ -25,7 +25,7 @@ function Footer() {
               </svg>
               
             <h2>تخاوي</h2>
-          </div>
+          </a>
           <p>تخاوي هو تطبيق لمشاركة الرحلات من مدينة الي اخري في المملكة.</p>
           <ul>
             <li>
@@ -115,13 +115,13 @@ function Footer() {
             <h3>خدماتنا</h3>
             <ul>
               <li>
-                <a href="">وظائف</a>
+                <Link href="/jobs">وظائف</Link>
               </li>
               <li>
-                <a href="">مستثمرين</a>
+                <Link href="/investors">مستثمرين</Link>
               </li>
               <li>
-                <a href="">أنضم معنا ككابتن</a>
+                <Link href="/captainsJoin">أنضم معنا ككابتن</Link>
               </li>
             </ul>
           </div>
@@ -140,7 +140,7 @@ function Footer() {
             <h3>للاستفسارات</h3>
             <ul>
               <li>
-                <a href="">takhawy@gmail.com </a>
+                <a href="mailto:takhawy@gmail.com">takhawy@gmail.com </a>
               </li>
             </ul>
           </div>

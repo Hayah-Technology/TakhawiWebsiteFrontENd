@@ -1,8 +1,17 @@
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 function LayNav() {
+  const [activeLink, setActiveLink] = useState('home');
+  const handleClick = (link) => {
+    setActiveLink(link);
+  };
+
   return (
+    <>
+    
+  
     <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
     <div className="container">
      
@@ -42,23 +51,19 @@ function LayNav() {
         <span className="toggler-icon bottom-bar"></span>
       </button>
        </div>
-
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-           
-            
-          
             <li className="nav-item">
-              <Link className="nav-link active" href="/">الصفحة الرئيسية</Link>
+              <Link  className={`nav-link ${activeLink === 'home' ? 'active' : '' }`} onClick={() => handleClick('home')} aria-current="page" href="/">الصفحة الرئيسية</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="/jobs">الوظائف</Link>
+              <Link className={`nav-link ${activeLink === 'jobs' ? 'active' : '' }`} onClick={() => handleClick('jobs')} href="/jobs">الوظائف</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="/investors">المستثمرين</Link>
+              <Link className={`nav-link ${activeLink === 'investors' ? 'active' : '' }`} onClick={() => handleClick('investors')} href="/investors">المستثمرين</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link " aria-current="page" href="/captainsJoin">الكباتن</Link>
+              <Link className={`nav-link ${activeLink === 'captainsJoin' ? 'active' : '' }`} onClick={() => handleClick('captainsJoin')} aria-current="page" href="/captainsJoin">الكباتن</Link>
             </li>
             <li className="nav-item lang">
               <button className="active">
@@ -85,6 +90,7 @@ function LayNav() {
      
     </div>
   </nav>
+  </>
   )
 }
 

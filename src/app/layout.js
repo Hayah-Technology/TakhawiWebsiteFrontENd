@@ -1,11 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Inter } from "next/font/google";
+import '@mantine/notifications/styles.css';
 import '@mantine/core/styles.css';
+
 import "./globals.css";
 import Script from "next/script";
 import Footer from "../../Components/Footer";
 import LayNav from "../../Components/LayNav";
 import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +23,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Script async src="/js/jquery-3.6.1.min.js" />
         <MantineProvider>
-
+        <Notifications />
         <LayNav/>
         {children}
         <Footer/>

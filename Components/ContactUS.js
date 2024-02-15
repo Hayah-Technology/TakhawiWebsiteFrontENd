@@ -33,7 +33,7 @@ function contactUS() {
                   fill="#5A42E6"
                 />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   clipRule="evenodd"
                   d="M20 4.5H4C2.9 4.5 2 5.4 2 6.5V18.5C2 19.6 2.9 20.5 4 20.5H20C21.1 20.5 22 19.6 22 18.5V6.5C22 5.4 21.1 4.5 20 4.5ZM20 6.5L12 11.49L4 6.5H20ZM12 13.5L4 8.5V18.5H20V8.5L12 13.5Z"
                   fill="#5A42E6"
