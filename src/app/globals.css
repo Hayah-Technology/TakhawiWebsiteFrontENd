@@ -2284,7 +2284,7 @@ form .fileInput p{
   font-family: "cairoL";
   text-align: start;
   cursor: pointer;
-
+  padding: 0px 8px;
 }
 form .fileInput input{
   position: absolute;
@@ -2320,6 +2320,7 @@ form .partImgFile .partImg p{
   font-family: "cairoM";
 line-height: 12px;
 color: var(--main_color);
+
 }
 form .partImgFile .partImg svg {
   width: 18px;
