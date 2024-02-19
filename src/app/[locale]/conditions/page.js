@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderPage from '../../../Components/HeaderPage'
+import HeaderPage from '../../../../Components/HeaderPage'
 
 function page() {
   return (

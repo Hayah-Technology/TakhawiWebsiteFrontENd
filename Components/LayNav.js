@@ -1,9 +1,13 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
+import { Link, usePathname } from "../src/navigation";
+
 import React from "react";
 
-function LayNav() {
+function LayNav({locale}) {
+  console.log('====================================');
+  console.log(locale);
+  console.log('====================================');
   const pathname = usePathname();
   console.log(pathname);
   return (
@@ -156,9 +160,9 @@ function LayNav() {
                 </Link>
               </li>
               <li className="nav-item lang">
-                <button className="active">عربي</button>
+                <Link href={pathname} locale="ar" className={locale==="ar"?"active":""}>عربي</Link >
                 <span>/</span>
-                <button className="">ENG</button>
+                <Link href={pathname} locale="en" className={locale==="en"?"active":""} >ENG</Link>
               </li>
             </ul>
             <div className="endnav">

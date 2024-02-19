@@ -1,7 +1,8 @@
 import React from "react";
-import HeaderPage from "../../../Components/HeaderPage";
-import ContactUs from "../../../Components/ContactUS";
-import ModalJop from "../../../Components/ModalJop";
+import HeaderPage from "../../../../Components/HeaderPage";
+import ModalJop from "../../../../Components/ModalJop";
+import ContactUS from "../../../../Components/ContactUS";
+
 
 function page() {
   return (
@@ -196,7 +197,7 @@ function page() {
           </div>
         </div>
       </section>
-      <ContactUs />
+      <ContactUS />
       <ModalJop />
     </>
   );

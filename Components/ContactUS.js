@@ -1,7 +1,7 @@
 import { FileInput, Input } from "@mantine/core";
 import React from 'react'
 
-function contactUS() {
+function ContactUS() {
   return (
     <section className="contactUS">
     <div className="con">
@@ -238,4 +238,4 @@ function contactUS() {
   )
 }
 
-export default contactUS
+export default ContactUS

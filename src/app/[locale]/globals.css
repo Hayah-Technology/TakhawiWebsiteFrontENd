@@ -494,9 +494,20 @@ footer .content .part1 ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s;
+
 }
 footer .content .part1 ul li a img {
   object-fit: contain;
+}
+footer .content .part1 ul li a svg path {
+  transition: 0.3s;
+}
+footer .content .part1 ul li a:hover{
+  box-shadow: 2px 3px 17px #aca1fd;
+}
+footer .content .part1 ul li a:hover svg path {
+  fill: rgb(185 206 250);
 }
 footer .content .part2 {
   display: flex;
@@ -1151,7 +1162,7 @@ li.nav-item.lang span {
   font-weight: 400;
 }
 
-li.nav-item.lang button {
+li.nav-item.lang a {
   background: none;
   border: none;
   font-size: 20px;
@@ -1159,8 +1170,9 @@ li.nav-item.lang button {
   font-family: "cairoL";
   line-height: 24px;
   transition: 0.4s;
+  color: black;
 }
-li.nav-item.lang button.active {
+li.nav-item.lang a.active {
   color: var(--main_color);
   font-family: "cairoB";
   font-weight: 700;
@@ -1855,6 +1867,11 @@ form .formInput {
   background-repeat: no-repeat;
   background-position: center;
 }
+html[dir="ltr"] .contactUS .mantine-FileInput-root::before {
+  left: auto;
+  right: 0;
+}
+
 @media (max-width: 992px) {
   .contactUS .content {
     padding: 38px 30px;
@@ -2206,6 +2223,11 @@ form .mantine-Checkbox-root label {
   transform: translateY(-50%);
   right: -36px;
 }
+html[dir="ltr"] .investors form .chekError::before {
+  left: -36px;
+  right: auto;
+
+}
 .mantine-PasswordInput-input {
   border: none;
   height: 100%;
@@ -2384,6 +2406,10 @@ form .partImgFile .partImg svg:hover {
     width: 20px;
     height: 20px;
     right: -10px;
+  }
+  html[dir="ltr"] .investors form .chekError::before {
+    left: -10px;
+    right: auto;
   }
   form .mantine-Checkbox-root label {
     font-size: 16px;

@@ -1,18 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import HeaderPage from "../../../Components/HeaderPage";
-import Captin from "../../../Components/Captin";
+import HeaderPage from "../../../../Components/HeaderPage";
+import Captin from "../../../../Components/Captin";
 import {
   Checkbox,
   FileInput,
   Input,
-  Notification,
   PasswordInput,
   Select,
 } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
+import { useTranslations } from "next-intl";
 
 function page() {
+  const t =useTranslations("home")
   const [selectedFile1, setSelectedFile1] = useState([]);
   const [selectedFile2, setSelectedFile2] = useState([]);
   const [selectedFile3, setSelectedFile3] = useState([]);

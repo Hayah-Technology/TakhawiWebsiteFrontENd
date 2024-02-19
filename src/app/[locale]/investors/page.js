@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import HeaderPage from "../../../Components/HeaderPage";
+import HeaderPage from "../../../../Components/HeaderPage";
 import { Checkbox, FileInput, Input, Textarea } from "@mantine/core";
 
 function page() {

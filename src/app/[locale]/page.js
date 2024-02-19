@@ -1,7 +1,12 @@
+import { useTranslations } from "next-intl";
 import "./globals.css";
 
 
-export default function Home() {
+export default function Home(params) {
+  console.log('==========page==========================');
+  console.log(params);
+  console.log('====================================');
+  const t = useTranslations('home');
   return (
     <main>
      
@@ -21,13 +26,11 @@ export default function Home() {
             <img src="/images/music.png" className="img img7" alt="luggage" />
             <img src="/images/smoking.png" className="img img8" alt="luggage" />
             <h1>
-              مشوار واحد, فرحتين <br />
-              <span> توفير وتوصيل !</span>
+             {t("about.title1")}<br />
+              <span> {t("about.title2")}</span>
             </h1>
             <p>
-              أكتشف عالم السفر البسيط والمتاكمل عبر تبطيبق تخاويز أحصل علي توفير
-              مالي وتواصل اجتماعي مميز, يجمع تطبيقنا بين سهولة الوصول الي سيارات
-              ومشاركة الرحلات لتجربة مشوار لا ينسي
+            {t("about.dec")}
             </p>
           </div>
         </div>
