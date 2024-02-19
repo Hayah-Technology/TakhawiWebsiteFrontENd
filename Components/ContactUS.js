@@ -1,18 +1,20 @@
 import { FileInput, Input } from "@mantine/core";
+import { useTranslations } from "next-intl";
 import React from 'react'
 
 function ContactUS() {
+  const t = useTranslations('jobs.contactUs');
   return (
     <section className="contactUS">
     <div className="con">
       <div className="content">
-        <h2>تواصل معنا</h2>
-        <h3>تواصل معنا في اي وقت! نحن دوما بانتظارك!</h3>
+        <h2>{t("title")}</h2>
+        <h3>{t("dec")}</h3>
         <form action="">
           <div className="formInput">
             <div className="parts">
               <label>
-              البريد الالكتروني
+              {t("email")}
               </label>
               <div className="part">
               <svg
@@ -41,14 +43,14 @@ function ContactUS() {
               </svg>
 
               <div className="partInput">
-                <Input placeholder="أكتب بريدك الالكتروني" />
+                <Input placeholder={t("emailPlac")} />
               </div>
               </div>
               
             </div>
             <div className="parts">
             <label>
-            رقم الجوال
+          {t("num")}
               </label>
             <div className="part">
               <svg
@@ -90,13 +92,13 @@ function ContactUS() {
 
               <p className="codePhone">+966</p>
               <div className="partInput">
-                <Input placeholder="أكتب رقم الجوال  " />
+                <Input placeholder={t("numPlace")} />
               </div>
             </div>
             </div>
             <div className="parts">
             <label>
-            الوظيفة
+             {t("jopTitle")}
               </label>
             <div className="part">
               <svg
@@ -146,13 +148,13 @@ function ContactUS() {
               </svg>
 
               <div className="partInput">
-                <Input placeholder="أكتب أسم الوظيفة  " />
+                <Input placeholder= {t("jopTitlePlace")} />
               </div>
             </div>
             </div>
             <div className="parts">
             <label>
-            السيرة الذاتية
+             {t("cv")}
               </label>
             <div className="part">
               <svg
@@ -221,7 +223,7 @@ function ContactUS() {
               </svg>
 
               <div className="partInput">
-                <FileInput placeholder="أرفع سيرتك الذاتية" />
+                <FileInput placeholder=  {t("cvPlace")} />
               </div>
             </div>
             </div>
@@ -230,7 +232,7 @@ function ContactUS() {
             
           </div>
 
-          <input type="submit" className="send" value="ارسال" />
+          <input type="submit" className="send" value= {t("send")} />
         </form>
       </div>
     </div>

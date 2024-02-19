@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "cairoM";
+  text-transform: capitalize !important;
 }
 body {
   background: white;
@@ -241,7 +242,7 @@ html::-webkit-scrollbar-track {
 }
 .about .content .join a {
   width: 254px;
-  padding: 24px 56px;
+  padding: 24px 46px;
   border: 2px solid white;
   border-radius: 45px;
   font-weight: 400;
@@ -299,10 +300,10 @@ html::-webkit-scrollbar-track {
     margin-bottom: 24px;
   }
   .about .content .join {
-    gap: 12px;
+    gap: 8px;
   }
   .about .content .join a {
-    padding: 14px 16px;
+    padding: 14px 8px;
     font-size: 16px;
     width: 180px;
   }
@@ -1247,7 +1248,7 @@ li.nav-item.lang a.active {
   .navbar-nav .nav-link:hover {
     color: white;
   }
-  li.nav-item.lang button.active {
+  li.nav-item.lang a.active {
     color: white;
   }
   .navbar .btn-lang1 {
@@ -1867,7 +1868,7 @@ form .formInput {
   background-repeat: no-repeat;
   background-position: center;
 }
-html[dir="ltr"] .contactUS .mantine-FileInput-root::before {
+html[dir="ltr"] .contactUS .mantine-FileInput-root::before ,html[dir="ltr"] .investors .mantine-FileInput-root::before {
   left: auto;
   right: 0;
 }
@@ -2181,6 +2182,12 @@ form .btn_page.notActive {
   z-index: 10;
   height: 56px;
   width: 128px;
+}
+html[dir=ltr] .investors .switchInvestors.company::before {
+  left: 0;
+}
+html[dir=ltr] .investors .switchInvestors.one::before {
+  left: 50%;
 }
 .investors .switchInvestors button.active {
   color: white;

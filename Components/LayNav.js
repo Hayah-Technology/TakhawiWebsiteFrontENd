@@ -1,15 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Link, usePathname } from "../src/navigation";
 
 import React from "react";
 
-function LayNav({locale}) {
-  console.log('====================================');
-  console.log(locale);
-  console.log('====================================');
+function LayNav({ locale }) {
   const pathname = usePathname();
-  console.log(pathname);
+  const t =useTranslations("home.nav")
   return (
     <>
       <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
@@ -99,11 +97,11 @@ function LayNav({locale}) {
                 strokeLinecap="round"
               />
             </svg>
-            <h2>تخاوي</h2>
+            <h2>{t("name")}</h2>
           </Link>
           <div className="navbar-toggler2">
             <button className="btn-lang " type="button">
-              حمل التطبيق
+            {t("loadApp")}
             </button>
             <button
               className="navbar-toggler collapsed"
@@ -127,7 +125,7 @@ function LayNav({locale}) {
                   aria-current="page"
                   href="/"
                 >
-                  الصفحة الرئيسية
+                  {t("home")}
                 </Link>
               </li>
               <li className="nav-item">
@@ -135,7 +133,7 @@ function LayNav({locale}) {
                   className={`nav-link ${pathname === "/jobs" ? "active" : ""}`}
                   href="/jobs"
                 >
-                  الوظائف
+                   {t("job")}
                 </Link>
               </li>
               <li className="nav-item">
@@ -145,7 +143,7 @@ function LayNav({locale}) {
                   }`}
                   href="/investors"
                 >
-                  المستثمرين
+                   {t("investor")}
                 </Link>
               </li>
               <li className="nav-item">
@@ -156,18 +154,30 @@ function LayNav({locale}) {
                   aria-current="page"
                   href="/captainsJoin"
                 >
-                  الكباتن
+                  {t("captain")}
                 </Link>
               </li>
               <li className="nav-item lang">
-                <Link href={pathname} locale="ar" className={locale==="ar"?"active":""}>عربي</Link >
+                <Link
+                  href={pathname}
+                  locale="ar"
+                  className={locale === "ar" ? "active" : ""}
+                >
+                  عربي
+                </Link>
                 <span>/</span>
-                <Link href={pathname} locale="en" className={locale==="en"?"active":""} >ENG</Link>
+                <Link
+                  href={pathname}
+                  locale="en"
+                  className={locale === "en" ? "active" : ""}
+                >
+                  ENG
+                </Link>
               </li>
             </ul>
             <div className="endnav">
               <button className="btn-lang btn-lang1" type="button">
-                حمل التطبيق
+              {t("loadApp")}
               </button>
             </div>
           </div>

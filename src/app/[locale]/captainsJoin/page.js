@@ -2,18 +2,12 @@
 import React, { useState } from "react";
 import HeaderPage from "../../../../Components/HeaderPage";
 import Captin from "../../../../Components/Captin";
-import {
-  Checkbox,
-  FileInput,
-  Input,
-  PasswordInput,
-  Select,
-} from "@mantine/core";
+import { Checkbox, Input, PasswordInput, Select } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useTranslations } from "next-intl";
 
 function page() {
-  const t =useTranslations("home")
+  const t = useTranslations("captain");
   const [selectedFile1, setSelectedFile1] = useState([]);
   const [selectedFile2, setSelectedFile2] = useState([]);
   const [selectedFile3, setSelectedFile3] = useState([]);
@@ -50,8 +44,8 @@ function page() {
   return (
     <>
       <HeaderPage
-        title={"شارك رحلتك مع تخاوي"}
-        title2={"قم بقيادة رحلتك بكل فخر"}
+        title={t("title")}
+        title2={t("dec")}
         img={"/images/captain.png"}
       />
       <Captin />
@@ -59,49 +53,40 @@ function page() {
       <section className="investors">
         <div className="con">
           <div className="content">
-            <h2> نسعد بتقديم خدماتنا اليك , فأنضم الينا!</h2>
+            <h2> {t("info")}</h2>
             <form action="">
               <div className="formInput   ">
                 <div className="parts ">
-                  <label>الاسم </label>
+                  <label>{t("name")} </label>
                   <div className="part">
                     <svg
-                      width="24"
+                      width="20"
                       height="24"
-                      viewBox="0 0 24 24"
+                      viewBox="0 0 20 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <g clipPath="url(#clip0_202_1200)">
-                        <path
-                          d="M15.2086 9.16028L15.2086 9.16022C16.1449 8.22396 16.6091 7.10334 16.6091 5.78025C16.6091 4.45776 16.1449 3.33691 15.2084 2.40022C14.2719 1.46414 13.1511 1 11.8285 1C10.5054 1 9.38476 1.46419 8.44849 2.40046C7.51217 3.33678 7.04785 4.45761 7.04785 5.78025C7.04785 7.10326 7.51217 8.22402 8.44856 9.16029L15.2086 9.16028ZM15.2086 9.16028C14.2724 10.0966 13.1514 10.5609 11.8285 10.5609M15.2086 9.16028L11.8285 10.5609M11.8285 10.5609C10.5061 10.5609 9.38518 10.0966 8.44862 9.16035L11.8285 10.5609Z"
-                          fill="#5A42E6"
-                          fillOpacity="0.35"
-                          stroke="#5A42E6"
-                          strokeWidth="2"
-                        />
-                        <path
-                          d="M20.9459 18.5247L20.9459 18.5239C20.9163 18.0979 20.8559 17.624 20.7647 17.1149C20.6742 16.6104 20.5588 16.1407 20.4237 15.7185L20.4236 15.7183C20.2903 15.3018 20.1077 14.8865 19.8799 14.4858C19.6519 14.0846 19.392 13.7494 19.1129 13.4825L19.1127 13.4824C18.8421 13.2234 18.4984 13.0031 18.0785 12.8366L20.9459 18.5247ZM20.9459 18.5247C20.9762 18.9571 20.9918 19.4108 20.992 19.8723L20.9459 18.5247ZM8.62752 13.4658L8.62685 13.4653C8.26082 13.2314 7.92869 13.0174 7.63983 12.8292L7.63963 12.8291C7.42521 12.6893 7.31057 12.6283 7.24611 12.601C7.23732 12.5973 7.23071 12.5947 7.22601 12.5929C6.72342 12.5952 6.27377 12.6814 5.88174 12.8366L5.88158 12.8367C5.46211 13.0028 5.1182 13.223 4.84711 13.4823L8.62752 13.4658ZM8.62752 13.4658C9.03894 13.7282 9.55173 13.9473 10.1232 14.1319L8.62752 13.4658ZM4.08031 14.4854L4.08025 14.4855C3.85253 14.8864 3.66991 15.3015 3.53646 15.7183L4.08031 14.4854ZM4.08031 14.4854C4.30761 14.0852 4.56759 13.75 4.84691 13.4825L4.08031 14.4854ZM3.01434 18.5243L3.01433 18.5245C2.98414 18.9596 2.96875 19.4131 2.96875 19.8725C2.96875 20.8979 3.286 21.6338 3.84202 22.1634C4.40118 22.6954 5.16563 23.0001 6.20231 23.0001H17.7584C18.7953 23.0001 19.5595 22.6954 20.1189 22.1631L20.1189 22.1631C20.6746 21.6344 20.9919 20.8986 20.992 19.8727L3.01434 18.5243ZM3.01434 18.5243C3.04387 18.0971 3.1043 17.6231 3.19545 17.1149L3.01434 18.5243ZM16.7337 12.5931C16.7289 12.5949 16.7223 12.5975 16.7135 12.6012C16.6489 12.6286 16.5342 12.6896 16.3195 12.8293C16.3194 12.8294 16.3193 12.8295 16.3192 12.8296L16.7337 12.5931ZM16.7337 12.5931C17.2362 12.5954 17.6861 12.6814 18.0783 12.8366L16.7337 12.5931ZM15.3322 13.4659L15.3333 13.4652L10.1234 14.132C10.7314 14.3285 11.3559 14.4307 11.9798 14.4307C12.6035 14.4307 13.2282 14.3286 13.8359 14.132C14.408 13.9472 14.9206 13.7281 15.3322 13.4659ZM3.19547 17.1148C3.28599 16.6105 3.40133 16.1409 3.53637 15.7186L3.19547 17.1148Z"
-                          fill="#5A42E6"
-                          fillOpacity="0.35"
-                          stroke="#5A42E6"
-                          strokeWidth="2"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_202_1200">
-                          <rect width="23.9999" height="24" fill="white" />
-                        </clipPath>
-                      </defs>
+                      <path
+                        d="M18.8227 19.3154L18.8227 19.3154C19.3011 20.1657 19.3538 21.2067 19.0798 22.0186C18.8043 22.835 18.2805 23.25 17.6951 23.25H17.6831H17.6711H17.6589H17.6467H17.6344H17.6221H17.6096H17.5971H17.5844H17.5717H17.559H17.5461H17.5332H17.5202H17.5071H17.4939H17.4807H17.4674H17.454H17.4405H17.427H17.4134H17.3997H17.3859H17.3721H17.3582H17.3442H17.3301H17.316H17.3018H17.2876H17.2732H17.2588H17.2443H17.2298H17.2152H17.2005H17.1858H17.171H17.1561H17.1411H17.1261H17.111H17.0959H17.0807H17.0654H17.0501H17.0347H17.0192H17.0037H16.9881H16.9725H16.9568H16.941H16.9252H16.9093H16.8933H16.8773H16.8612H16.8451H16.8289H16.8127H16.7964H16.78H16.7636H16.7471H16.7306H16.714H16.6974H16.6807H16.664H16.6472H16.6303H16.6134H16.5965H16.5795H16.5624H16.5453H16.5281H16.5109H16.4937H16.4763H16.459H16.4416H16.4241H16.4066H16.3891H16.3715H16.3538H16.3362H16.3184H16.3006H16.2828H16.265H16.247H16.2291H16.2111H16.193H16.175H16.1568H16.1387H16.1205H16.1022H16.0839H16.0656H16.0472H16.0288H16.0104H15.9919H15.9734H15.9548H15.9362H15.9176H15.8989H15.8802H15.8615H15.8427H15.8239H15.8051H15.7862H15.7673H15.7483H15.7294H15.7104H15.6913H15.6722H15.6531H15.634H15.6149H15.5957H15.5765H15.5572H15.5379H15.5186H15.4993H15.48H15.4606H15.4412H15.4217H15.4023H15.3828H15.3633H15.3437H15.3242H15.3046H15.285H15.2654H15.2457H15.2261H15.2064H15.1867H15.1669H15.1472H15.1274H15.1076H15.0878H15.068H15.0482H15.0283H15.0084H14.9885H14.9686H14.9487H14.9288H14.9088H14.8888H14.8688H14.8488H14.8288H14.8088H14.7888H14.7687H14.7487H14.7286H14.7085H14.6884H14.6683H14.6482H14.6281H14.608H14.5878H14.5677H14.5475H14.5274H14.5072H14.487H14.4668H14.4467H14.4265H14.4063H14.3861H14.3659H14.3457H14.3255H14.3053H14.2851H14.2648H14.2446H14.2244H14.2042H14.184H14.1638H14.1436H14.1233H14.1031H14.0829H14.0627H14.0425H14.0223H14.0021H13.9819H13.9617H13.9416H13.9214H13.9012H13.8811H13.8609H13.8407H13.8206H13.8005H13.7803H13.7602H13.7401H13.72H13.6999H13.6798H13.6598H13.6397H13.6197H13.5996H13.5796H13.5596H13.5396H13.5196H13.4997H13.4797H13.4598H13.4399H13.42H13.4001H13.3802H13.3603H13.3405H13.3207H13.3009H13.2811H13.2613H13.2416H13.2219H13.2022H13.1825H13.1628H13.1432H13.1236H13.104H13.0844H13.0648H13.0453H13.0258H13.0063H12.9869H12.9675H12.9481H12.9287H12.9093H12.89H12.8707H12.8515H12.8322H12.813H12.7938H12.7747H12.7556H12.7365H12.7174H12.6984H12.6794H12.6604H12.6415H12.6226H12.6037H12.5849H12.5661H12.5473H12.5286H12.5099H12.4913H12.4726H12.4541H12.4355H12.417H12.3985H12.3801H12.3617H12.3433H12.325H12.3067H12.2885H12.2703H12.2522H12.234H12.216H12.1979H12.18H12.162H12.1441H12.1263H12.1084H12.0907H12.073H12.0553H12.0377H12.0201H12.0025H11.985H11.9676H11.9502H11.9329H11.9156H11.8983H11.8811H11.864H11.8469H11.8299H11.8129H11.7959H11.779H11.7622H11.7454H11.7287H11.712H11.6954H11.6788H11.6623H11.6459H11.6295H11.6131H11.5968H11.5806H11.5644H11.5483H11.5323H11.5163H11.5004H11.4845H11.4687H11.4529H11.4372H11.4216H11.406H11.3905H11.3751H11.3597H11.3444H11.3291H11.3139H11.2988H11.2837H11.2688H11.2538H11.239H11.2242H11.2094H11.1948H11.1802H11.1657H11.1512H11.1368H11.1225H11.1083H11.0941H11.08H11.066H11.052H11.0381H11.0243H11.0106H10.9969H10.9833H10.9698H10.9563H10.943H10.9297H10.9165H10.9033H10.8903H10.8773H10.8644H10.8515H10.8388H10.8261H10.8135H10.801H10.7885H10.7762H10.7639H10.7517H10.7396H10.7276H10.7156H10.7038H10.692H10.6803H10.6687H10.6572H10.6457H10.6344H10.6231H10.6119H10.6008H10.5898H10.5789H10.5681H10.5573H10.5467H10.5361H10.5256H10.5152H10.5049H10.4947H10.4846H10.4746H10.4647H10.4548H10.4451H10.4354H10.4259H10.4164H10.407H10.3978H10.3886H10.3795H10.3705H10.3616H10.3528H10.3441H10.3355H10.327H10.3186H10.3103H10.3021H10.294H10.286H10.2781H10.2703H10.2626H10.2551H10.2476H10.2402H10.2329H10.2257H10.2186H10.2117H10.2048H10.198H10.1914H10.1848H10.1784H10.172H10.1658H10.1597H10.1537H10.1478H10.142H10.1363H10.1307H10.1253H10.1199H10.1147H10.1095H10.1045H10.0996H10.0948H10.0901H10.0856H10.0811H10.0768H10.0726H10.0685H10.0645H10.0606H10.0568H10.0532H10.0497H10.0463H10.043H10.0398H10.0368H10.0338H10.031H10.0283H10.0258H10.0233H10.021H10.0188H10.0167H10.0148H10.0129H10.0112H10.0096H10.0082H10.0068H10.0056H10.0045H10.0036H10.0027H10.002H10.0015H10.001H10.0007H10.0005L10.0004 24L10.0004 23.25H10.0002H9.99985H9.9994H9.99882H9.99811H9.99728H9.99632H9.99523H9.99402H9.99268H9.99122H9.98963H9.98792H9.98609H9.98413H9.98205H9.97985H9.97752H9.97507H9.9725H9.96982H9.96701H9.96408H9.96103H9.95786H9.95457H9.95117H9.94764H9.944H9.94024H9.93637H9.93238H9.92827H9.92405H9.91971H9.91526H9.9107H9.90602H9.90122H9.89632H9.8913H9.88617H9.88093H9.87557H9.87011H9.86453H9.85885H9.85306H9.84715H9.84114H9.83502H9.82879H9.82245H9.81601H9.80946H9.8028H9.79604H9.78917H9.7822H9.77512H9.76794H9.76065H9.75327H9.74577H9.73818H9.73048H9.72268H9.71478H9.70678H9.69868H9.69048H9.68218H9.67378H9.66528H9.65668H9.64799H9.6392H9.63031H9.62132H9.61224H9.60306H9.59378H9.58441H9.57495H9.56539H9.55574H9.54599H9.53615H9.52622H9.5162H9.50608H9.49588H9.48558H9.47519H9.46471H9.45414H9.44349H9.43274H9.42191H9.41098H9.39997H9.38888H9.37769H9.36642H9.35506H9.34362H9.33209H9.32048H9.30879H9.29701H9.28514H9.2732H9.26117H9.24905H9.23686H9.22459H9.21223H9.19979H9.18728H9.17468H9.16201H9.14925H9.13642H9.12351H9.11052H9.09745H9.08431H9.07109H9.0578H9.04442H9.03098H9.01746H9.00386H8.99019H8.97645H8.96264H8.94875H8.93479H8.92075H8.90665H8.89248H8.87823H8.86391H8.84953H8.83507H8.82055H8.80596H8.7913H8.77657H8.76177H8.74691H8.73198H8.71699H8.70193H8.6868H8.67161H8.65636H8.64104H8.62566H8.61021H8.5947H8.57913H8.5635H8.54781H8.53205H8.51624H8.50036H8.48442H8.46843H8.45237H8.43626H8.42009H8.40386H8.38758H8.37123H8.35484H8.33838H8.32187H8.3053H8.28868H8.27201H8.25528H8.23849H8.22166H8.20477H8.18783H8.17083H8.15379H8.13669H8.11955H8.10235H8.0851H8.06781H8.05046H8.03307H8.01563H7.99814H7.9806H7.96302H7.94539H7.92771H7.90999H7.89222H7.87441H7.85655H7.83865H7.8207H7.80272H7.78468H7.76661H7.7485H7.73034H7.71214H7.6939H7.67562H7.65731H7.63895H7.62055H7.60211H7.58364H7.56513H7.54658H7.52799H7.50937H7.49071H7.47202H7.45329H7.43452H7.41572H7.39689H7.37802H7.35912H7.34019H7.32122H7.30222H7.28319H7.26413H7.24504H7.22592H7.20677H7.18759H7.16838H7.14914H7.12987H7.11057H7.09125H7.0719H7.05253H7.03312H7.01369H6.99424H6.97476H6.95526H6.93573H6.91618H6.89661H6.87701H6.85739H6.83775H6.81809H6.7984H6.7787H6.75897H6.73922H6.71946H6.69967H6.67987H6.66005H6.64021H6.62035H6.60048H6.58059H6.56068H6.54076H6.52082H6.50087H6.4809H6.46092H6.44092H6.42092H6.40089H6.38086H6.36081H6.34075H6.32069H6.30061H6.28051H6.26041H6.2403H6.22018H6.20006H6.17992H6.15978H6.13962H6.11946H6.0993H6.07913H6.05895H6.03877H6.01858H5.99838H5.97819H5.95799H5.93778H5.91757H5.89736H5.87715H5.85694H5.83672H5.81651H5.79629H5.77607H5.75586H5.73564H5.71543H5.69522H5.67501H5.6548H5.63459H5.61439H5.59419H5.574H5.55381H5.53362H5.51344H5.49327H5.4731H5.45294H5.43279H5.41264H5.3925H5.37237H5.35225H5.33214H5.31204H5.29194H5.27186H5.25179H5.23173H5.21168H5.19164H5.17161H5.1516H5.1316H5.11162H5.09165H5.07169H5.05175H5.03182H5.01191H4.99201H4.97214H4.95227H4.93243H4.9126H4.8928H4.87301H4.85324H4.83349H4.81376H4.79404H4.77435H4.75469H4.73504H4.71541H4.69581H4.67623H4.65667H4.63714H4.61763H4.59814H4.57868H4.55925H4.53984H4.52046H4.5011H4.48177H4.46247H4.44319H4.42395H4.40473H4.38554H4.36638H4.34725H4.32815H4.30908H4.29004H4.27104H4.25206H4.23312H4.21421H4.19533H4.17649H4.15768H4.13891H4.12017H4.10147H4.0828H4.06416H4.04557H4.02701H4.00849H3.99H3.97156H3.95315H3.93478H3.91645H3.89816H3.87991H3.8617H3.84354H3.82541H3.80733H3.78928H3.77128H3.75333H3.73542H3.71755H3.69972H3.68194H3.66421H3.64652H3.62888H3.61128H3.59373H3.57623H3.55877H3.54137H3.52401H3.5067H3.48944H3.47223H3.45507H3.43796H3.4209H3.4039H3.38694H3.37004H3.35319H3.33639H3.31965H3.30296H3.28632H3.26974H3.25321H3.23674H3.22033H3.20397H3.18767H3.17143H3.15524H3.13911H3.12304H3.10703H3.09108H3.07519H3.05936H3.04359H3.02788H3.01223H2.99664H2.98112H2.96566H2.95026H2.93492H2.91965H2.90444H2.8893H2.87422H2.85921H2.84426H2.82938H2.81457H2.79982H2.78515H2.77053H2.75599H2.74152H2.72712H2.71278H2.69852H2.68432H2.6702H2.65615H2.64217H2.62826H2.61443H2.60067H2.58698H2.57336H2.55982H2.54636H2.53297H2.51965H2.50641H2.49325H2.48016H2.46715H2.45422H2.44137H2.42859H2.41589H2.40328H2.39074H2.37828H2.3659H2.35361H2.34139H2.32926H2.31721H2.30524C1.71978 23.25 1.19604 22.835 0.920491 22.0185C0.646517 21.2067 0.699198 20.1657 1.17756 19.3154L1.17765 19.3152C1.96605 17.913 3.2073 16.3743 5.16246 15.4235C6.56416 16.308 8.22312 16.8221 10.0004 16.8221C11.7768 16.8221 13.4357 16.308 14.8373 15.4235C16.7925 16.3743 18.0337 17.9129 18.8227 19.3154Z"
+                        fill="#ACA0F2"
+                        stroke="#5A42E6"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M15.5427 7.79995C15.5427 10.8609 13.0618 13.3425 10.0006 13.3425C6.93882 13.3425 4.45752 10.8608 4.45752 7.8V6.29259C4.45752 3.23177 6.93878 0.75 10.0006 0.75C13.0618 0.75 15.5427 3.23166 15.5427 6.29255V7.79995Z"
+                        fill="#ACA0F2"
+                        stroke="#5A42E6"
+                        strokeWidth="1.5"
+                      />
                     </svg>
 
                     <div className="partInput">
-                      <Input placeholder="أكتب الأسم " />
+                      <Input placeholder={t("namePlac")} />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label>الجنس </label>
+                  <label>{t("gender")} </label>
                   <div className="part">
                     <svg
                       width="25"
@@ -142,12 +127,12 @@ function page() {
                     </svg>
 
                     <div className="partInput">
-                      <Input placeholder=" أكتب ذكر أم أنثي " />
+                      <Input placeholder={t("genderPlace")} />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label>البريد الالكتروني</label>
+                  <label>{t("email")} </label>
                   <div className="part">
                     <svg
                       width="24"
@@ -175,12 +160,12 @@ function page() {
                     </svg>
 
                     <div className="partInput">
-                      <Input placeholder="أكتب بريدك الالكتروني" />
+                      <Input placeholder={t("emailPlac")} />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label>رقم الجوال</label>
+                  <label>{t("num")} </label>
                   <div className="part">
                     <svg
                       width="25"
@@ -221,12 +206,12 @@ function page() {
 
                     <p className="codePhone">+966</p>
                     <div className="partInput">
-                      <Input placeholder="أكتب رقم الجوال  " />
+                      <Input placeholder={t("numPlace")} />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label>كلمة السر </label>
+                  <label>{t("pass")} </label>
                   <div className="part">
                     <svg
                       width="18"
@@ -244,12 +229,12 @@ function page() {
                     </svg>
 
                     <div className="partInput">
-                      <PasswordInput placeholder="أكتب كلمة السر  " />
+                      <PasswordInput placeholder={t("passPlace")} />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label>تأكيد كلمة السر </label>
+                  <label>{t("pass2")} </label>
                   <div className="part">
                     <svg
                       width="18"
@@ -267,14 +252,14 @@ function page() {
                     </svg>
 
                     <div className="partInput">
-                      <PasswordInput placeholder=" أكتب كلمة السر " />
+                      <PasswordInput placeholder={t("pass2Place")} />
                     </div>
                   </div>
                 </div>
               </div>
               <Checkbox
                 defaultChecked
-                label="لقد قرأت وقبلت الشروط والأحكام"
+                label={t("agree")}
                 color="#5a42e6"
                 radius="xl"
                 className="chekError"
@@ -283,7 +268,7 @@ function page() {
                 type="submit"
                 className="btn_page notActive"
                 disabled
-                value="التالي"
+                value={t("next")}
               />
             </form>
           </div>
@@ -292,11 +277,11 @@ function page() {
       <section className="investors">
         <div className="con">
           <div className="content">
-            <h2> نسعد بتقديم خدماتنا اليك , فأنضم الينا!</h2>
+            <h2> {t("info")}</h2>
             <form action="">
               <div className="formInput   ">
                 <div className="parts  ">
-                  <label>الهوية </label>
+                  <label>{t("identityTitle")} </label>
                   <div className="part">
                     <svg
                       width="25"
@@ -315,8 +300,12 @@ function page() {
 
                     <div className="partInput">
                       <div className="fileInput">
-                        <input type="file" onChange={handleHeaderInputChange} multiple/>
-                        <p>أرفع الهويه (أمام \ خلف) </p>
+                        <input
+                          type="file"
+                          onChange={handleHeaderInputChange}
+                          multiple
+                        />
+                        <p>{t("identityDec")}</p>
                         <svg
                           width="24"
                           height="25"
@@ -361,7 +350,7 @@ function page() {
                   </div>
                 </div>
                 <div className="parts ">
-                  <label>رقم الهوية </label>
+                  <label>{t("numIdentityTitle")} </label>
                   <div className="part">
                     <svg
                       width="25"
@@ -379,12 +368,12 @@ function page() {
                     </svg>
 
                     <div className="partInput">
-                      <Input placeholder=" أكتب رقم الهوية " />
+                      <Input placeholder={t("numIdentityDec")} />
                     </div>
                   </div>
                 </div>
                 <div className="parts  ">
-                  <label>رخصة القيادة </label>
+                  <label>{t("licenseTitle")} </label>
                   <div className="part">
                     <svg
                       width="32"
@@ -420,7 +409,7 @@ function page() {
                           type="file"
                           onChange={handleHeaderInputChange2}
                         />
-                        <p> أرفع رخصة القيادة (أمام \ خلف) </p>
+                        <p> {t("licenseDec")} </p>
                         <svg
                           width="24"
                           height="25"
@@ -465,9 +454,9 @@ function page() {
                   </div>
                 </div>
                 <div className="parts  ">
-                <label>سجل العربة </label>
+                  <label>{t("cartTitle")} </label>
                   <div className="part">
-                  <svg
+                    <svg
                       width="25"
                       height="24"
                       viewBox="0 0 25 24"
@@ -509,8 +498,11 @@ function page() {
 
                     <div className="partInput">
                       <div className="fileInput">
-                        <input type="file" onChange={handleHeaderInputChange3} />
-                        <p> أرفع سجل العربة  </p>
+                        <input
+                          type="file"
+                          onChange={handleHeaderInputChange3}
+                        />
+                        <p> {t("cartDec")} </p>
                         <svg
                           width="24"
                           height="25"
@@ -554,9 +546,9 @@ function page() {
                       })}
                   </div>
                 </div>
-              
+
                 <div className="parts ">
-                  <label>الرقم التسلسلي للمركبة </label>
+                  <label>{t("serialTitle")} </label>
                   <div className="part">
                     <svg
                       width="24"
@@ -716,25 +708,25 @@ function page() {
                     </svg>
 
                     <div className="partInput">
-                      <Input placeholder=" أكتب الرقم التسلسلي للمركبة   " />
+                      <Input placeholder={t("serialDec")} />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label> رقم العربة من حروف وأرقام </label>
+                  <label> {t("NumCarTitle")} </label>
                   <div className="part">
                     <img src="/images/carNum.png" alt="carNum" />
 
                     <div className="partInput">
-                      <Input placeholder=" أكتب رقم العربة مثل N T U 2 9 2 9   " />
+                      <Input placeholder={t("NumCarDec")} />
                     </div>
                   </div>
                 </div>
-               
+
                 <div className="parts  ">
-                <label> صور للعربة </label>
+                  <label> {t("imgCarTitle")} </label>
                   <div className="part">
-                  <svg
+                    <svg
                       width="25"
                       height="24"
                       viewBox="0 0 25 24"
@@ -776,8 +768,11 @@ function page() {
 
                     <div className="partInput">
                       <div className="fileInput">
-                        <input type="file" onChange={handleHeaderInputChange4} />
-                        <p>   أرفع صور للعربة من أربع أتجاهات  </p>
+                        <input
+                          type="file"
+                          onChange={handleHeaderInputChange4}
+                        />
+                        <p> {t("imgCarDec")} </p>
                         <svg
                           width="24"
                           height="25"
@@ -822,14 +817,13 @@ function page() {
                   </div>
                   <div className="errorInput">
                     <img src="/images/note.png" alt="error" />
-                    <p>من فضلك رفع صور العربة من أربع جهات لاكتمال المعلومات</p>
+                    <p>{t("errorImgCar")} </p>
                   </div>
                 </div>
-              
               </div>
               <div className="formInput formInput2  ">
                 <div className="parts ">
-                  <label>فئة المركبة </label>
+                  <label>{t("classTitle")} </label>
                   <div className="part">
                     <svg
                       width="24"
@@ -872,14 +866,14 @@ function page() {
 
                     <div className="partInput">
                       <Select
-                        placeholder="أختار فئة المركبة"
+                        placeholder={t("classDec")}
                         data={["شاحنة", "2شاحنة", "3شاحنة", "4شاحنة"]}
                       />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label> عدد المقاعد </label>
+                  <label> {t("seatsTitle")} </label>
                   <div className="part">
                     <svg
                       width="24"
@@ -922,14 +916,14 @@ function page() {
 
                     <div className="partInput">
                       <Select
-                        placeholder="أختار عدد المقاعد  "
+                        placeholder={t("seatsDec")}
                         data={["4", "7", "5", "2"]}
                       />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label> لون المركبة </label>
+                  <label> {t("colorTitle")} </label>
                   <div className="part">
                     <svg
                       width="24"
@@ -972,14 +966,14 @@ function page() {
 
                     <div className="partInput">
                       <Select
-                        placeholder="  أختار لون المركبة"
+                        placeholder={t("colorDec")}
                         data={["رمادي", "ابيض", "اسود", "احمر"]}
                       />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label> نوع العربة </label>
+                  <label> {t("typeTitle")} </label>
                   <div className="part">
                     <svg
                       width="24"
@@ -1022,14 +1016,14 @@ function page() {
 
                     <div className="partInput">
                       <Select
-                        placeholder="أختار نوع العربة"
+                        placeholder={t("typeDec")}
                         data={["مرسيدس", "هونداي", "كيا", "تيوتا"]}
                       />
                     </div>
                   </div>
                 </div>
                 <div className="parts ">
-                  <label> اسم المركبة</label>
+                  <label> {t("nameCarTitle")}</label>
                   <div className="part">
                     <svg
                       width="24"
@@ -1073,7 +1067,7 @@ function page() {
                     <div className="partInput">
                       <Select
                         clearable
-                        placeholder="أختار اسم المركبة"
+                        placeholder={t("nameCarDec")}
                         data={[
                           "مرسيدس بنز ",
                           "مرسيدس بنز 1",
@@ -1085,7 +1079,7 @@ function page() {
                   </div>
                 </div>
                 <div className="parts ">
-                  <label>سنه الانتاج </label>
+                  <label>{t("yearCarTitle")} </label>
                   <div className="part">
                     <svg
                       width="24"
@@ -1129,7 +1123,7 @@ function page() {
                     <div className="partInput">
                       <Select
                         clearable
-                        placeholder="أختار سنة الانتاج"
+                        placeholder={t("yearCarDec")}
                         data={["2005", "2007", "2008", "2009"]}
                       />
                     </div>
@@ -1142,7 +1136,7 @@ function page() {
                   type="submit"
                   className="btn_page "
                   disabled
-                  value="السابق"
+                  value={t("back")}
                 />
 
                 <input
@@ -1160,7 +1154,7 @@ function page() {
                   }}
                   type="submit"
                   className="btn_page notActive"
-                  value="أنشئ حسابا"
+                  value={t("craete")}
                 />
               </div>
               {/* <Notification className="hide notification" hidden  

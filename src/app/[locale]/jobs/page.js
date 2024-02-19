@@ -2,16 +2,18 @@ import React from "react";
 import HeaderPage from "../../../../Components/HeaderPage";
 import ModalJop from "../../../../Components/ModalJop";
 import ContactUS from "../../../../Components/ContactUS";
+import { useTranslations } from "next-intl";
 
 
 function page() {
+  const t = useTranslations('jobs');
   return (
     <>
-      <HeaderPage title={"كن جزءًا من مهمتنا"} title2={"نحن نبحث ان اشخاص متحمسين للانضمام لتخاوي "} img={"/images/header1.png"} />
+      <HeaderPage title={t("title1")} title2={t("title2")} img={"/images/header1.png"} />
       <section className="jobs">
         <div className="con">
           <div className="content">
-            <h2>4 وظائف بأنتظارك</h2>
+            <h2>4 {t("jobNum")}</h2>
             <div className="allJobs">
               <div className="job">
                 <div className="info">
@@ -55,7 +57,7 @@ function page() {
                   data-bs-target="#exampleModalLong"
                   className="moreDetails"
                 >
-                  تفاصيل
+                  {t("details")}
                 </button>
               </div>
               <div className="job">
@@ -100,7 +102,7 @@ function page() {
                   data-bs-target="#exampleModalLong"
                   className="moreDetails"
                 >
-                  تفاصيل
+                  {t("details")}
                 </button>
               </div>
               <div className="job">
@@ -145,7 +147,7 @@ function page() {
                   data-bs-target="#exampleModalLong"
                   className="moreDetails"
                 >
-                  تفاصيل
+                  {t("details")}
                 </button>
               </div>
               <div className="job">
@@ -190,7 +192,7 @@ function page() {
                   data-bs-target="#exampleModalLong"
                   className="moreDetails"
                 >
-                  تفاصيل
+                  {t("details")}
                 </button>
               </div>
             </div>

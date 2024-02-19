@@ -3,9 +3,7 @@ import "./globals.css";
 
 
 export default function Home(params) {
-  console.log('==========page==========================');
-  console.log(params);
-  console.log('====================================');
+
   const t = useTranslations('home');
   return (
     <main>
@@ -38,35 +36,35 @@ export default function Home(params) {
       <section className="features">
         <div className="con">
           <div className="content">
-            <h2>بنوفرلك مميزات في تخاوي</h2>
+            <h2>{t("ad.title")}</h2>
             <div className="parts">
               <div className="part">
                 <div className="imgPart">
                   <img src="/images/time.png" alt="time" />
                 </div>
-                <h3>وقـــــت</h3>
-                <p>رحلات في وقت مظبوط ومتوفره طوال اليوم</p>
+                <h3>{t("ad.timeTitle")}</h3>
+                <p>{t("ad.timedec")}</p>
               </div>
               <div className="part">
                 <div className="imgPart">
                   <img src="/images/money.png" alt="money" />
                 </div>
-                <h3>توفير</h3>
-                <p>مشاركة الرحلة دائما توفر لك اكثر مما تتوقع</p>
+                <h3>{t("ad.provisionTitle")}</h3>
+                <p>{t("ad.provisiondec")}</p>
               </div>
               <div className="part">
                 <div className="imgPart">
                   <img src="/images/protection.png" alt="protection" />
                 </div>
-                <h3>امان</h3>
-                <p>يمكن تتبع الرحلة كاملة ومميزات اكتر داخل التطبيق</p>
+                <h3>{t("ad.securitytitle")}</h3>
+                <p>{t("ad.securitydec")}</p>
               </div>
               <div className="part">
                 <div className="imgPart">
                   <img src="/images/hotel.png" alt="hotel" />
                 </div>
-                <h3>فنادق</h3>
-                <p>لربط مع أكبر منصة رائدة لحجز الفنادق BOOKING عبر الإنترنت</p>
+                <h3>{t("ad.hotelstitle")}</h3>
+                <p>{t("ad.hotelsdec")}  </p>
               </div>
             </div>
           </div>
@@ -79,11 +77,9 @@ export default function Home(params) {
               <img src="/images/AppImg.png" alt="app" />
             </div>
             <div className="part2">
-              <h2>حمل تطبيق تخاوي الان!</h2>
+              <h2>{t("app.title")}!</h2>
               <p>
-                مشاركة السيارات دون عناء: قم بالحجز والدفع بسهولة باستخدام
-                تطبيقنا لمشاركة السيارات، والذي يوفر أسطولًا متنوعًا وتتبع نظام
-                تحديد المواقع العالمي (GPS) في الوقت الفعلي ومعاملات آمنة.
+               {t("app.dec")}
               </p>
               <ul>
                 <li>
@@ -152,20 +148,17 @@ export default function Home(params) {
       <section className="about">
         <div className="con">
           <div className="content">
-            <h2>من تخاوي؟</h2>
+            <h2> {t("who.title1")}</h2>
             <h3>
-              تخاوي خدمة توصيل مختصة في مجال النقال التشاركي يربط من يريد الذهاب
-              من مدينة لمدينة أخرى يصطحب معه أشخاص يريدون الذهاب لنفس الوجهة ومن
-              خلاله يتم تقسيم التكلفة في ما فيما بينهم لتضمن لهم سلامتهم وترفع
-              من جودة الخدمة لنقلهم.
+              {t("who.dec")}
             </h3>
-            <h4>أصبح جزءا من قصتنا!</h4>
+            <h4> {t("who.title2")}</h4>
             <div className="join">
               <a href="" className="joinTeam">
-                أنضم لفريقنا
+               {t("who.joinTime")}
               </a>
               <a href="" className="joinCapt">
-                أنضم ككابتن
+                {t("who.joinCap")}
               </a>
             </div>
           </div>
@@ -174,7 +167,7 @@ export default function Home(params) {
       <section className="location">
         <div className="content">
           <div className="part1">
-            <h2>وين ما تبي بتلقالك خوي</h2>
+            <h2>{t("location.title")}</h2>
           </div>
           <div className="part2">
             <img src="/images/location.png" alt="" />
@@ -184,7 +177,7 @@ export default function Home(params) {
       <section className="questions">
         <div className="con">
           <div className="content">
-            <h2>الأسئلة الشائعة</h2>
+            <h2>{t("qui.title")}</h2>
             <div className="accordion" id="accordionExample">
               <div className="accordion-item">
                 <h2 className="accordion-header" id="headingOne">

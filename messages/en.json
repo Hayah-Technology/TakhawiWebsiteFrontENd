@@ -1,11 +1,12 @@
 {
   "home": {
     "nav": {
-      "home": "home",
-      "job": "jobs",
-      "investor": "investors",
-      "captain": "captains",
-      "loadApp": "load App"
+      "home": "Home",
+      "job": "Jobs",
+      "investor": "Investors",
+      "captain": "Captains",
+      "loadApp": "Load App",
+      "name":"Takhawy"
     },
     "about": {
       "title1": "One trip, two joys",
@@ -13,7 +14,7 @@
       "dec": "Discover the simple and complete world of travel through Tawazeez app. Get financial savings and social connection, our app combines easy access to cars and ride-sharing for an unforgettable experience."
     },
     "ad": {
-      "title": "We provide you with features in Takhawi",
+      "title": "We provide you with features in Takhawy",
       "timeTitle": "time",
       "timedec": "Flights are on time and available all day",
       "provisionTitle": "provision",
@@ -24,12 +25,12 @@
       "hotelsdec": "To connect with the leading online hotel booking platform BOOKING"
     },
     "app": {
-      "title": "Download Takhawi app now!",
+      "title": "Download Takhawy app now!",
       "dec": "Effortless car sharing: Easily book and pay with our car sharing app, which offers a diverse fleet, real-time GPS tracking, and secure transactions."
     },
-    "Who ": {
-      "title1": "Who Takhawi",
-      "dec": "Takhawi is a ride-sharing service that connects people who want to go from one city to another with people who want to go to the same destination and through which the cost is divided among them to ensure their safety and increase the quality of the service to transport them.",
+    "who": {
+      "title1": "Who Takhawy",
+      "dec": "Takhawy is a ride-sharing service that connects people who want to go from one city to another with people who want to go to the same destination and through which the cost is divided among them to ensure their safety and increase the quality of the service to transport them.",
       "title2": "Become part of our story!",
       "joinTime": "Join our team",
       "joinCap": "Join as a captain"
@@ -38,10 +39,11 @@
       "title": "Where do you want to meet my brother?"
     },
     "qui": {
-      "title": "Frequently Asked Questions"
+      "title": "Frequently Questions"
     },
     "footer": {
-      "dec": "Takhawi is a ride-sharing app that shares rides from one city to another in the Kingdom.",
+      "name":"Takhawy",
+      "dec": "Takhawy is a ride-sharing app that shares rides from one city to another in the Kingdom.",
       "title1": "Services",
       "title2": "Policy",
       "title3": "Inquiries",
@@ -54,8 +56,8 @@
   },
   "jobs": {
     "title1": "Be part of our mission",
-    "title2": "We are looking for passionate people to join Takhawi",
-    "jobNum": "Jobs are waiting for you",
+    "title2": "We are looking for passionate people to join Takhawy",
+    "jobNum": "jobs waiting for you",
     "details": "details",
     "contactUs": {
       "title": "Contact Us",
@@ -75,7 +77,7 @@
   },
   "investor": {
     "title": "Join us on our journey of growth",
-    "dec": "Invest in Takhawi's future",
+    "dec": "Invest in Takhawy's future",
     "info": "For inquiries, please contact us",
     "company": "company",
     "one": "individual",
@@ -95,7 +97,7 @@
     "send": "send"
   },
   "captain": {
-    "title": "Share your journey with Takhawi",
+    "title": "Share your journey with Takhawy",
     "dec": "Lead your journey with pride",
     "info": "We are happy to serve you, join us!",
     "why": {
@@ -109,8 +111,6 @@
       "costTitle": "Low cost and increased income.",
       "costDec": "Captains can offer an opportunity to split costs with passengers, or increase your profits by offering in-app transportation services. Help you achieve your financial goals."
     },
-    "company": "company",
-    "one": "individual",
     "name": "fullName",
     "namePlac": "Type name",
     "gender": "gender",
@@ -138,6 +138,7 @@
     "NumCarDec": "Write the vehicle number such as N T U 2 9 2 9",
     "imgCarTitle": "Pictures of the vehicle",
     "imgCarDec": "Upload photos of the vehicle from four directions",
+    "errorImgCar":"Please upload the photos of the vehicle from four sides for complete information",
     "classTitle": "vehicle class",
     "classDec": "Select vehicle class",
     "seatsTitle": "Number of seats",

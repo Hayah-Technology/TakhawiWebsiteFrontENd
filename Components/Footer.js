@@ -1,7 +1,10 @@
+import { useTranslations } from "next-intl";
 import { Link } from "../src/navigation";
 import React from "react";
 
 function Footer() {
+  const t =useTranslations("home.footer")
+
   return (
     <footer>
       <div className="con">
@@ -93,9 +96,11 @@ function Footer() {
                 />
               </svg>
 
-              <h2>تخاوي</h2>
+              <h2>{t("name")}</h2>
             </a>
-            <p>تخاوي هو تطبيق لمشاركة الرحلات من مدينة الي اخري في المملكة.</p>
+            <p>
+            {t("dec")}
+            </p>
             <ul>
               <li>
                 <a href="#">
@@ -139,8 +144,8 @@ function Footer() {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M0 9C0 5.40486 0 3.60729 0.856692 2.31255C1.23925 1.73439 1.73439 1.23925 2.31255 0.856692C3.60729 0 5.40486 0 9 0C12.5951 0 14.3927 0 15.6874 0.856692C16.2656 1.23925 16.7608 1.73439 17.1433 2.31255C18 3.60729 18 5.40486 18 9C18 12.5951 18 14.3927 17.1433 15.6874C16.7608 16.2656 16.2656 16.7608 15.6874 17.1433C14.3927 18 12.5951 18 9 18C5.40486 18 3.60729 18 2.31255 17.1433C1.73439 16.7608 1.23925 16.2656 0.856692 15.6874C0 14.3927 0 12.5951 0 9ZM13.6593 9.00023C13.6593 11.5735 11.5732 13.6596 8.99984 13.6596C6.42652 13.6596 4.34043 11.5735 4.34043 9.00023C4.34043 6.42691 6.42652 4.34082 8.99984 4.34082C11.5732 4.34082 13.6593 6.42691 13.6593 9.00023ZM8.99984 12.0832C10.7025 12.0832 12.0828 10.7029 12.0828 9.00023C12.0828 7.29753 10.7025 5.91722 8.99984 5.91722C7.29714 5.91722 5.91684 7.29753 5.91684 9.00023C5.91684 10.7029 7.29714 12.0832 8.99984 12.0832ZM13.8433 5.20155C14.4479 5.20155 14.9381 4.71138 14.9381 4.10673C14.9381 3.50207 14.4479 3.0119 13.8433 3.0119C13.2386 3.0119 12.7485 3.50207 12.7485 4.10673C12.7485 4.71138 13.2386 5.20155 13.8433 5.20155Z"
                       fill="white"
                     />
@@ -183,32 +188,32 @@ function Footer() {
           </div>
           <div className="part2">
             <div className="part">
-              <h3>خدماتنا</h3>
+              <h3>{t("title1")}</h3>
               <ul>
                 <li>
-                  <Link href="/jobs">وظائف</Link>
+                  <Link href="/jobs">{t("job")}</Link>
                 </li>
                 <li>
-                  <Link href="/investors">مستثمرين</Link>
+                  <Link href="/investors">{t("investor")}</Link>
                 </li>
                 <li>
-                  <Link href="/captainsJoin">أنضم معنا ككابتن</Link>
+                  <Link href="/captainsJoin">  {t("captain")}</Link>
                 </li>
               </ul>
             </div>
             <div className="part">
-              <h3>سياستنا</h3>
+              <h3>{t("title2")}</h3>
               <ul>
                 <li>
-                  <Link href="/conditions">الشروط والأحكام</Link>
+                  <Link href="/conditions"> {t("conditions")}</Link>
                 </li>
                 <li>
-                  <Link href="/privacy">سياسة الخصوصية</Link>
+                  <Link href="/privacy"> {t("privacy")}</Link>
                 </li>
               </ul>
             </div>
             <div className="part">
-              <h3>للاستفسارات</h3>
+              <h3>{t("title3")}</h3>
               <ul>
                 <li>
                   <a href="mailto:takhawy@gmail.com">takhawy@gmail.com </a>
