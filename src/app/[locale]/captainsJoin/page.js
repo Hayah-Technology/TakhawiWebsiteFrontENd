@@ -1066,7 +1066,7 @@ function page() {
 
                     <div className="partInput">
                       <Select
-                        clearable
+                        
                         placeholder={t("nameCarDec")}
                         data={[
                           "مرسيدس بنز ",
@@ -1122,7 +1122,7 @@ function page() {
 
                     <div className="partInput">
                       <Select
-                        clearable
+                        
                         placeholder={t("yearCarDec")}
                         data={["2005", "2007", "2008", "2009"]}
                       />

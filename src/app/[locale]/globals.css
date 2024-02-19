@@ -28,7 +28,9 @@ body {
   font-weight: 700;
   font-style: normal;
 }
-
+input, textarea,.mantine-FileInput-input div,form .partImgFile .partImg p{
+  text-transform: none !important;
+}
 input::placeholder {
   font-family: "cairoL";
 }
