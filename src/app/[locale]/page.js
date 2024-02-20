@@ -70,7 +70,7 @@ export default function Home(params) {
           </div>
         </div>
       </section>
-      <section className="app">
+      <section className="app" id="app">
         <div className="con">
           <div className="content">
             <div className="part1">
@@ -170,7 +170,7 @@ export default function Home(params) {
             <h2>{t("location.title")}</h2>
           </div>
           <div className="part2">
-            <img src="/images/location.png" alt="" />
+            <img src="/images/location.png" alt="location" />
           </div>
         </div>
       </section>

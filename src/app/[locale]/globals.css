@@ -87,6 +87,9 @@ html::-webkit-scrollbar-track {
   .con {
     padding: 0px 40px;
   }
+  body {
+    padding-top: 86px;
+}
 }
 @media (max-width: 768px) {
   .con {
@@ -126,10 +129,13 @@ html::-webkit-scrollbar-track {
   min-width: 400px;
   max-width: 400px;
   flex: 1;
-  transition: 0.3s;
+  transition: 0.5s;
+  border: 1px solid #eeecfd;
 }
 .features .content .parts .part:hover {
-  box-shadow: 0px 0px 5px #c9c6e2;
+  box-shadow: 0px 6px 21px #dac3f8;
+  border: 1px solid #5c44ea33;
+  transform: translateY(-7px);
 }
 .features .content .parts .part .imgPart {
   width: 76px;
@@ -251,6 +257,10 @@ html::-webkit-scrollbar-track {
   font-family: "cairoL";
   font-size: 22px;
   line-height: 24px;
+  transition: 0.4s;
+}
+.about .content .join a:hover {
+  box-shadow: 4px 6px 21px #c8d3d7;
 }
 .about .content .join .joinTeam {
   background-color: white;
@@ -363,12 +373,16 @@ html::-webkit-scrollbar-track {
   top: 50%;
   transform: translateY(-50%);
 }
+.questions .accordion-collapse{
+
+
+}
 .questions .accordion-collapse.collapse.show {
-  background-color: rgba(246, 246, 246, 1);
   border-radius: 0px 0px 18px 18px;
 }
 .questions .content .accordion .accordion-item .accordion-body {
   padding: 0px 24px 18px;
+  background-color: rgba(246, 246, 246, 1);
 }
 .questions .content .accordion .accordion-item .accordion-body p {
   font-size: 18px;
@@ -504,13 +518,15 @@ footer .content .part1 ul li a img {
   object-fit: contain;
 }
 footer .content .part1 ul li a svg path {
-  transition: 0.3s;
+  transition: 0.1s;
 }
 footer .content .part1 ul li a:hover{
   box-shadow: 2px 3px 17px #aca1fd;
+  background-color: rgb(198 190 248 / 93%);
+  transform: scale(1.11);
 }
 footer .content .part1 ul li a:hover svg path {
-  fill: rgb(185 206 250);
+  fill: rgb(92 68 234);
 }
 footer .content .part2 {
   display: flex;
@@ -542,6 +558,29 @@ footer .content .part2 .part ul li a {
   font-family: "cairoL";
   text-wrap: nowrap;
   color: black;
+  transform: 0.5s;
+  position: relative;
+}
+footer .content .part2 .part ul li a::before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  transition: 0.6s;
+  background-color: var(--main_color);
+}
+html[dir=ltr] footer .content .part2 .part ul li a::before{
+  right: auto;
+  left: 0;
+}
+footer .content .part2 .part ul li a:hover:before{
+  width: 70%;
+}
+footer .content .part2 .part ul li a:hover{
+  color: var(--main_color);
+
 }
 @media (max-width: 1270px) {
   footer .content .part2 {
@@ -1225,6 +1264,10 @@ li.nav-item.lang a.active {
 }
 
 @media (max-width: 992px) {
+  .navbar {
+    padding-top: 0rem;
+   
+  }
   .endnav {
     margin-bottom: 34px;
   }
@@ -1454,6 +1497,11 @@ li.nav-item.lang a.active {
   min-width: 410px;
   flex: 1;
   max-width: 550px;
+  transition: 0.5s;
+}
+.jobs .content .allJobs .job:hover{
+  box-shadow: 0px 6px 21px #8a64bc73;
+  border: 1px solid transparent;
 }
 .jobs .content .allJobs .job .info {
   width: 288px;
@@ -1505,6 +1553,15 @@ li.nav-item.lang a.active {
   line-height: 24px;
   font-family: "cairoL";
   border: none;
+  transition: 0.5s;
+border: 1px solid var(--main_color);
+
+}
+.jobs .content .allJobs .job .moreDetails:hover{
+color: var(--main_color);
+background-color: white;
+border: 1px solid var(--main_color);
+box-shadow: 0px 6px 21px #8a64bc;
 }
 .modal.jobsModel {
   background: rgb(209 209 244 / 57%);
@@ -2194,8 +2251,23 @@ html[dir=ltr] .investors .switchInvestors.one::before {
 .investors .switchInvestors button.active {
   color: white;
 }
+form .checkPart {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 12px;
+}
+form .checkPart p{
+  font-size: 18px;
+  font-family: "cairoM";
+}
+form .checkPart a{
+  font-size: 18px;
+  font-family: "cairoM";
+  text-decoration: underline !important;
+}
 form .mantine-Checkbox-root {
-  margin-top: 36px;
+ 
 }
 .investors form .mantine-FileInput-section {
   width: 64px;
@@ -2408,7 +2480,7 @@ form .partImgFile .partImg svg:hover {
     margin-bottom: 18px;
   }
   .investors form .chekError {
-    padding: 0px 20px;
+    padding: 0px 14px;
   }
   .investors form .chekError::before {
     background-size: 20px;
@@ -2421,7 +2493,10 @@ form .partImgFile .partImg svg:hover {
     right: auto;
   }
   form .mantine-Checkbox-root label {
+  }
+  form .checkPart p ,  form .checkPart a{
     font-size: 16px;
+
   }
   .mantine-Select-section{
     
@@ -2453,5 +2528,10 @@ form .partImgFile .partImg {
 form .partImgFile .partImg p {
     font-size: 14px;
    
+}
+form .checkPart {
+ 
+  margin-top: 20px;
+  gap: 0px;
 }
 }
