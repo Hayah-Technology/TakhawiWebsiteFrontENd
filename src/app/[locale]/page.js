@@ -1,13 +1,11 @@
 import { useTranslations } from "next-intl";
 import "./globals.css";
-
+import { Link } from "../../navigation";
 
 export default function Home(params) {
-
-  const t = useTranslations('home');
+  const t = useTranslations("home");
   return (
     <main>
-     
       <section className="header">
         <div className="con">
           <div className="content">
@@ -24,12 +22,11 @@ export default function Home(params) {
             <img src="/images/music.png" className="img img7" alt="luggage" />
             <img src="/images/smoking.png" className="img img8" alt="luggage" />
             <h1>
-             {t("about.title1")}<br />
+              {t("about.title1")}
+              <br />
               <span> {t("about.title2")}</span>
             </h1>
-            <p>
-            {t("about.dec")}
-            </p>
+            <p>{t("about.dec")}</p>
           </div>
         </div>
       </section>
@@ -64,30 +61,27 @@ export default function Home(params) {
                   <img src="/images/hotel.png" alt="hotel" />
                 </div>
                 <h3>{t("ad.hotelstitle")}</h3>
-                <p>{t("ad.hotelsdec")}  </p>
+                <p>{t("ad.hotelsdec")} </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-     
       <section className="app" id="app">
         <div className="con">
           <div className="content">
             <div className="part1">
-            <div class="pulse">
-  <div class="ring"></div>
-  <div class="ring"></div>
-  <div class="ring"></div>
-  <div class="ring"></div>
-</div>
+              <div class="pulse">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+              </div>
               <img src="/images/AppImg.png" alt="app" />
             </div>
             <div className="part2">
               <h2>{t("app.title")}!</h2>
-              <p>
-               {t("app.dec")}
-              </p>
+              <p>{t("app.dec")}</p>
               <ul>
                 <li>
                   <a href="">
@@ -156,17 +150,15 @@ export default function Home(params) {
         <div className="con">
           <div className="content">
             <h2> {t("who.title1")}</h2>
-            <h3>
-              {t("who.dec")}
-            </h3>
+            <h3>{t("who.dec")}</h3>
             <h4> {t("who.title2")}</h4>
             <div className="join">
-              <a href="" className="joinTeam">
-               {t("who.joinTime")}
-              </a>
-              <a href="" className="joinCapt">
+              <Link href="/investors" className="joinTeam">
+                {t("who.joinTime")}
+              </Link>
+              <Link href="/captainsJoin" className="joinCapt">
                 {t("who.joinCap")}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
