@@ -587,6 +587,7 @@ footer .content .part2 .part.mapLocation ul li a{
   line-height: 26px;
   display: block;
   padding-bottom: 6px;
+  direction: rtl;
 }
 @media (max-width: 1270px) {
   footer .content .part2 {
