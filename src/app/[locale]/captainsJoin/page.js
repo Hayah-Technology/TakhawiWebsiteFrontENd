@@ -1169,7 +1169,7 @@ function page() {
                           dir: "rtl",
                           icon: true,
                           top: 20,
-                          autoClose: 600000,
+                          autoClose: 15000,
                           title: t("notifTitle"),
                           message: t("notifMessage"),
                         });
