@@ -2369,7 +2369,7 @@ form .errorInput {
 form .errorInput p {
   color: rgba(255, 95, 110, 1);
   font-size: 16px;
-  line-height: 12px;
+  line-height: 16px;
 
   font-family: "cairoM";
 }
