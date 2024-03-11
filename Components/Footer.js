@@ -3,7 +3,7 @@ import { Link } from "../src/navigation";
 import React from "react";
 
 function Footer() {
-  const t =useTranslations("home.footer")
+  const t = useTranslations("home.footer");
 
   return (
     <footer>
@@ -98,9 +98,7 @@ function Footer() {
 
               <h2>{t("name")}</h2>
             </a>
-            <p>
-            {t("dec")}
-            </p>
+            <p>{t("dec")}</p>
             <ul>
               <li>
                 <a href="#">
@@ -197,7 +195,7 @@ function Footer() {
                   <Link href="/investors">{t("investor")}</Link>
                 </li>
                 <li>
-                  <Link href="/captainsJoin">  {t("captain")}</Link>
+                  <Link href="/captainsJoin"> {t("captain")}</Link>
                 </li>
               </ul>
             </div>
@@ -224,7 +222,9 @@ function Footer() {
               <h3>{t("title4")}</h3>
               <ul>
                 <li>
-                  <a href="mailto:takhawy@gmail.com" >شركه NOB,طريق عثمان بن عفان,الرياض </a>
+                  <a href="mailto:takhawy@gmail.com">
+                    شركه NOB,طريق عثمان بن عفان,الرياض{" "}
+                  </a>
                 </li>
               </ul>
             </div>

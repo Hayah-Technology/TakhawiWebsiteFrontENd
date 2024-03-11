@@ -48,7 +48,7 @@ function page() {
           mobile: mobile,
           message: message,
           type: type,
-          terms_accepted: terms === true ? 1 :0,
+          terms_accepted: terms === true ? 1 : 0,
           files: file,
         },
         {
@@ -62,16 +62,24 @@ function page() {
         console.log(res);
       })
       .catch((res) => {
-        setNameErorr(res.response.data?.errors?.name?res.response.data.errors.name[0]:null);
-        setEmailErorr(res.response.data?.errors?.email?res.response.data.errors.email[0]:null);
-        setMobileErorr(res.response?.data?.errors?.mobile?res.response?.data?.errors?.mobile[0] : null);
+        setNameErorr(
+          res.response.data?.errors?.name
+            ? res.response.data.errors.name[0]
+            : null
+        );
+        setEmailErorr(
+          res.response.data?.errors?.email
+            ? res.response.data.errors.email[0]
+            : null
+        );
+        setMobileErorr(
+          res.response?.data?.errors?.mobile
+            ? res.response?.data?.errors?.mobile[0]
+            : null
+        );
         console.log(res);
       });
   };
-
-
-
-
 
   useEffect(() => {}, []);
   return (
@@ -421,7 +429,7 @@ function page() {
                   checked={terms}
                   color="#5a42e6"
                   radius="xl"
-                  className={ terms?"":" chekError"}
+                  className={terms ? "" : " chekError"}
                   onChange={(e) => {
                     setTerms(e.currentTarget.checked);
                   }}
