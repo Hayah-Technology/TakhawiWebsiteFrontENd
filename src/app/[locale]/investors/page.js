@@ -14,12 +14,13 @@ function page() {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [message, setMessage] = useState("");
-  const [type, setType] = useState(1);
+  const [type, setType] = useState();
   const [terms, setTerms] = useState(false);
   const [file, setFile] = useState("");
   const [nameErorr, setNameErorr] = useState("");
   const [emailErorr, setEmailErorr] = useState("");
   const [mobileErorr, setMobileErorr] = useState("");
+  const [termsErorr, setTermsErorr] = useState("");
 
   let CompleteData =
     name && surname && email && mobile && message && type && terms
@@ -55,6 +56,7 @@ function page() {
           headers: {
             "Content-Type": "multipart/form-data",
             Accept: "application/json",
+            'Accept-Language':'ar'
           },
         }
       )
@@ -75,6 +77,11 @@ function page() {
         setMobileErorr(
           res.response?.data?.errors?.mobile
             ? res.response?.data?.errors?.mobile[0]
+            : null
+        );
+        setTermsErorr(
+          res.response?.data?.errors?.terms_accepted
+            ? res.response?.data?.errors?.terms_accepted[0]
             : null
         );
         console.log(res);
@@ -426,10 +433,11 @@ function page() {
               </div>
               <div className="checkPart">
                 <Checkbox
+               
                   checked={terms}
                   color="#5a42e6"
                   radius="xl"
-                  className={terms ? "" : " chekError"}
+                  className={termsErorr ?  " chekError" :""}
                   onChange={(e) => {
                     setTerms(e.currentTarget.checked);
                   }}
@@ -438,11 +446,15 @@ function page() {
                   {t("agree")} <Link href="/conditions">{t("agree2")}</Link>
                 </p>
               </div>
-
+              {termsErorr && (
+                    <div className="errorInput">
+                      <p>{termsErorr}</p>
+                    </div>
+                  )}
               <input
                 type="submit"
                 className={CompleteData ? "btn_page " : "btn_page notActive"}
-                disabled={!CompleteData}
+               // disabled={!CompleteData}
                 value={t("send")}
                 onClick={(e) => {
                   e.preventDefault(), handellogin();
