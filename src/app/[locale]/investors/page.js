@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "../../../navigation";
 import axios from "axios";
 
-function page() {
+function page({params}) {
   const [investors, setInvestors] = useState("company");
   const t = useTranslations("investor");
   const [name, setName] = useState("");
@@ -14,7 +14,7 @@ function page() {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [message, setMessage] = useState("");
-  const [type, setType] = useState();
+  const [type, setType] = useState(1);
   const [terms, setTerms] = useState(false);
   const [file, setFile] = useState("");
   const [nameErorr, setNameErorr] = useState("");
@@ -23,7 +23,7 @@ function page() {
   const [termsErorr, setTermsErorr] = useState("");
 
   let CompleteData =
-    name && surname && email && mobile && message && type && terms
+    name && surname && email && mobile  && type && terms
       ? true
       : false;
   console.log("====================================");
@@ -56,7 +56,7 @@ function page() {
           headers: {
             "Content-Type": "multipart/form-data",
             Accept: "application/json",
-            'Accept-Language':'ar'
+            'Accept-Language':params.locale
           },
         }
       )
@@ -454,7 +454,7 @@ function page() {
               <input
                 type="submit"
                 className={CompleteData ? "btn_page " : "btn_page notActive"}
-               // disabled={!CompleteData}
+               disabled={!CompleteData}
                 value={t("send")}
                 onClick={(e) => {
                   e.preventDefault(), handellogin();
