@@ -2062,10 +2062,17 @@ html[dir="ltr"] .investors .mantine-FileInput-root::before {
 }
 /*policy*/
 .policy {
+  padding: 30px 0px;
+  min-height: 500px;
 }
 .policy h3 {
   font-size: 22px;
   font-family: "cairoB";
+  line-height: 40px;
+}
+.policy h4 {
+  font-size: 22px;
+  font-family: "cairoL";
   line-height: 40px;
 }
 .policy p {
