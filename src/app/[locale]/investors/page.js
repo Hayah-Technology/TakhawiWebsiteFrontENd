@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import HeaderPage from "../../../../Components/HeaderPage";
-import { Checkbox, FileInput, Input, Textarea } from "@mantine/core";
+import { Checkbox, FileInput, Input, LoadingOverlay, Textarea } from "@mantine/core";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../navigation";
 import axios from "axios";
@@ -23,11 +23,14 @@ function page({ params }) {
   const [emailErorr, setEmailErorr] = useState("");
   const [mobileErorr, setMobileErorr] = useState("");
   const [termsErorr, setTermsErorr] = useState("");
+  const [Loading, setLoading] = useState(false);
+
   console.log(file);
   let CompleteData =
     name && surname && email && mobile && type && terms ? true : false;
 
   const handellogin = () => {
+    setLoading(true)
     const po = axios
       .post(
         "https://dashboard.takhawe.com/api/investors",
@@ -50,6 +53,8 @@ function page({ params }) {
         }
       )
       .then((res) => {
+    setLoading(false)
+
         console.log(res);
         notifications.show({
           dir: "rtl",
@@ -72,6 +77,8 @@ function page({ params }) {
         setTermsErorr("");
       })
       .catch((res) => {
+    setLoading(false)
+
         setNameErorr(
           res.response.data?.errors?.name
             ? res.response.data.errors.name[0]
@@ -105,6 +112,8 @@ function page({ params }) {
       />
       <section className="investors">
         <div className="con">
+      <LoadingOverlay visible={Loading} loaderProps={{ color: '#5a42e6'}} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
+
           <div className="content">
             <h2> {t("info")}</h2>
             <form action="">

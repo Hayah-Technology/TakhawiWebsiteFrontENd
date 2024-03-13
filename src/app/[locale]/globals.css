@@ -2805,3 +2805,6 @@ html[dir="ltr"] .mantine-Notification-root {
     padding: 20px 0px;
   }
 }
+.mantine-LoadingOverlay-root{
+  position: fixed;
+}

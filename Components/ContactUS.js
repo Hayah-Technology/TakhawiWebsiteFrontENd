@@ -1,9 +1,9 @@
 "use client";
-import { FileInput, Input } from "@mantine/core";
+import { FileInput, Input, LoadingOverlay } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import axios from "axios";
 import { useTranslations } from "next-intl";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function ContactUS({ lang }) {
   const t = useTranslations("jobs.contactUs");
@@ -13,10 +13,13 @@ function ContactUS({ lang }) {
   const [mobile, setMobile] = useState("");
   const [nameJob, setNameJob] = useState("");
   const [file, setFile] = useState(null);
+  const [Loading, setLoading] = useState(false);
   const [nameJobErorr, setNameJobErorr] = useState("");
   const [emailErorr, setEmailErorr] = useState("");
   const [mobileErorr, setMobileErorr] = useState("");
   const handelContactUS = () => {
+    setLoading(true);
+
     const po = axios
       .post(
         "https://dashboard.takhawe.com/api/contact_us",
@@ -36,6 +39,8 @@ function ContactUS({ lang }) {
       )
       .then((res) => {
         console.log(res);
+        setLoading(false);
+
         setEmail("");
         setMobile("");
         setNameJob("");
@@ -53,6 +58,8 @@ function ContactUS({ lang }) {
         });
       })
       .catch((res) => {
+        setLoading(false);
+
         console.log(res);
 
         setEmailErorr(
@@ -72,10 +79,28 @@ function ContactUS({ lang }) {
         );
       });
   };
-
+  const handelData = () => {
+    const po = axios
+      .get("https://dashboard.takhawe.com/api/data")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((res) => {
+        console.log(res);
+      });
+  };
+  useEffect(() => {
+    handelData();
+  }, []);
   return (
     <section className="contactUS">
       <div className="con">
+        <LoadingOverlay
+          visible={Loading}
+          zIndex={1000}
+          overlayProps={{ radius: "sm", blur: 2 }}
+          loaderProps={{ color: '#5a42e6'}}
+        />
         <div className="content">
           <h2>{t("title")}</h2>
           <h3>{t("dec")}</h3>
@@ -111,7 +136,7 @@ function ContactUS({ lang }) {
 
                   <div className="partInput">
                     <Input
-                    value={email}
+                      value={email}
                       placeholder={t("emailPlac")}
                       onChange={(e) => {
                         setEmail(e.target.value);
@@ -168,7 +193,7 @@ function ContactUS({ lang }) {
                   <p className="codePhone">+966</p>
                   <div className="partInput">
                     <Input
-                    value={mobile}
+                      value={mobile}
                       placeholder={t("numPlace")}
                       onChange={(e) => {
                         setMobile(e.target.value);
@@ -233,7 +258,7 @@ function ContactUS({ lang }) {
 
                   <div className="partInput">
                     <Input
-                    value={nameJob}
+                      value={nameJob}
                       placeholder={t("jopTitlePlace")}
                       onChange={(e) => {
                         setNameJob(e.target.value);
@@ -317,7 +342,7 @@ function ContactUS({ lang }) {
 
                   <div className="partInput">
                     <FileInput
-                    value={file}
+                      value={file}
                       clearable
                       placeholder={t("cvPlace")}
                       onChange={(e) => {
