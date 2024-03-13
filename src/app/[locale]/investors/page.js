@@ -41,7 +41,7 @@ function page() {
   const handellogin = () => {
     const po = axios
       .post(
-        "https://dashboard.takhawe.com/api/admin/investors",
+        "https://dashboard.takhawe.com/api/investors",
         {
           name: name,
           surname: surname,

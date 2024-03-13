@@ -14,11 +14,11 @@ function page() {
   const [jobID,setjobID]= useState(1)
    const gejobs =  () => {
     const result = axios
-      .get(`https://dashboard.takhawe.com/api/admin/jobs`)
+      .get(`https://dashboard.takhawe.com/api/jobs`)
       .then((res) => {
         console.log(res);
-        setjobs(res.data.data)
-        setjobOne([res.data.data[0]])
+        setjobs(res.data.jobs)
+        setjobOne([res.data.jobs[0]])
       })
       .catch((error) => {
         console.log(error);
@@ -47,7 +47,7 @@ useEffect(()=>{
                   return(
                     <div className="job" key={job.id}>
                     <div className="info">
-                      <h3>{job.title_ar}</h3>
+                      <h3>{job.title['ar']}</h3>
                       <div className="details">
                         <h4>{job.type}</h4>
                         <div className="loc">
@@ -78,7 +78,7 @@ useEffect(()=>{
                             />
                           </svg>
     
-                          <p>{job.location_ar}</p>
+                          <p>{job.location['ar']}</p>
                         </div>
                       </div>
                     </div>

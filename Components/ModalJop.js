@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "next-share";
 import React from "react";
 
 function ModalJop({ data }) {
@@ -38,26 +44,22 @@ function ModalJop({ data }) {
           </div>
 
           <div className="modal-body">
-            <h2>وظيفة: {data.title_ar}</h2>
+            <h2>وظيفة: {data.title["ar"]}</h2>
             <div className="parts">
               {data.sections.length > 0
                 ? data.sections.map((item) => {
                     return (
                       <div key={item.id} className="part">
-                        <h3>{item.title_ar}</h3>
+                        <h3>{item.title["ar"]}</h3>
                         {item.details.length > 0
                           ? item.details.map((dec) => {
-                            return(
-                              <p key={dec.id}>{dec.content_ar}</p>
-
-                            )
+                              return <p key={dec.id}>{dec.content["ar"]}</p>;
                             })
                           : null}
                       </div>
                     );
                   })
                 : nul}
-            
             </div>
             <div className="endModel">
               <h4>مشاركة هذه الوظيفة</h4>
@@ -95,7 +97,15 @@ function ModalJop({ data }) {
 
                   <p>نسخ الرابط</p>
                 </button>
-                <a href="#" className="linkModel">
+                <EmailShareButton
+                  style={{
+                    background: "rgba(90, 66, 230, 0.35)",
+                    width: "40px",
+                    height: " 40px",
+                    borderRadius: "50%",
+                  }}
+                  url={"https://github.com/next-share"}
+                >
                   <svg
                     width="25"
                     height="24"
@@ -132,8 +142,16 @@ function ModalJop({ data }) {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </a>
-                <a href="#" className="linkModel">
+                </EmailShareButton>
+                <TwitterShareButton
+                  style={{
+                    background: "rgba(90, 66, 230, 0.35)",
+                    width: "40px",
+                    height: " 40px",
+                    borderRadius: "50%",
+                  }}
+                  url={"https://github.com/next-share"}
+                >
                   <svg
                     width="21"
                     height="20"
@@ -158,8 +176,17 @@ function ModalJop({ data }) {
                       </clipPath>
                     </defs>
                   </svg>
-                </a>
-                <a href="#" className="linkModel">
+                </TwitterShareButton>
+
+                <FacebookShareButton
+                  style={{
+                    background: "rgba(90, 66, 230, 0.35)",
+                    width: "40px",
+                    height: " 40px",
+                    borderRadius: "50%",
+                  }}
+                  url={"https://github.com/next-share"}
+                >
                   <svg
                     width="21"
                     height="20"
@@ -172,8 +199,17 @@ function ModalJop({ data }) {
                       fill="#5A42E6"
                     />
                   </svg>
-                </a>
-                <a href="#" className="linkModel">
+                </FacebookShareButton>
+
+                <LinkedinShareButton
+                  style={{
+                    background: "rgba(90, 66, 230, 0.35)",
+                    width: "40px",
+                    height: " 40px",
+                    borderRadius: "50%",
+                  }}
+                  url={"https://github.com/next-share"}
+                >
                   <svg
                     width="21"
                     height="20"
@@ -198,7 +234,7 @@ function ModalJop({ data }) {
                       </clipPath>
                     </defs>
                   </svg>
-                </a>
+                </LinkedinShareButton>
               </div>
             </div>
           </div>
