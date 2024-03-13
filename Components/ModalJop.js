@@ -1,5 +1,7 @@
 "use client";
 
+import { Button, CopyButton } from "@mantine/core";
+import { useTranslations } from "next-intl";
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -8,8 +10,10 @@ import {
 } from "next-share";
 import React from "react";
 
-function ModalJop({ data }) {
+function ModalJop({ data, lang }) {
+  const t = useTranslations('jobs');
   console.log(data);
+  console.log(lang);
   return (
     <div
       className="modal jobsModel "
@@ -44,16 +48,16 @@ function ModalJop({ data }) {
           </div>
 
           <div className="modal-body">
-            <h2>وظيفة: {data.title["ar"]}</h2>
+            <h2>{t('job')}: {data.title[lang]}</h2>
             <div className="parts">
               {data.sections.length > 0
                 ? data.sections.map((item) => {
                     return (
                       <div key={item.id} className="part">
-                        <h3>{item.title["ar"]}</h3>
+                        <h3>{item.title[lang]}</h3>
                         {item.details.length > 0
                           ? item.details.map((dec) => {
-                              return <p key={dec.id}>{dec.content["ar"]}</p>;
+                              return <p key={dec.id}>{dec.content[lang]}</p>;
                             })
                           : null}
                       </div>
@@ -62,41 +66,87 @@ function ModalJop({ data }) {
                 : nul}
             </div>
             <div className="endModel">
-              <h4>مشاركة هذه الوظيفة</h4>
+              <h4>{t('share')}</h4>
               <div className="linksModel">
-                <button className="linkModel copyLink">
-                  <svg
-                    width="25"
-                    height="24"
-                    viewBox="0 0 25 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.31787 15.1811L15.6818 8.81714"
-                      stroke="#5A42E6"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M14.0904 16.7728L11.4388 19.4245C10.5948 20.2682 9.45028 20.7421 8.25694 20.742C7.0636 20.7419 5.91916 20.2678 5.07534 19.4239C4.23152 18.5801 3.75743 17.4357 3.75732 16.2423C3.75722 15.049 4.23112 13.9045 5.0748 13.0605L7.72645 10.4089"
-                      stroke="#5A42E6"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M17.2727 13.5904L19.9243 10.9388C20.768 10.0948 21.2419 8.95028 21.2418 7.75694C21.2417 6.5636 20.7676 5.41916 19.9238 4.57534C19.0799 3.73152 17.9355 3.25743 16.7422 3.25732C15.5488 3.25722 14.4043 3.73112 13.5603 4.5748L10.9087 7.22645"
-                      stroke="#5A42E6"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                <CopyButton
+                  value={window.location.href}
+                  className="linkModel copyLink"
+                >
+                  {({ copied, copy }) => (
+                    <Button color={copied ? "#42e68b59" : "rgba(90, 66, 230, 0.35)"} radius={'40px'} onClick={copy}>
+                      {copied ? (
+                        <>
+                          <svg
+                            width="25"
+                            height="24"
+                            viewBox="0 0 25 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9.31787 15.1811L15.6818 8.81714"
+                              stroke="#5A42E6"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M14.0904 16.7728L11.4388 19.4245C10.5948 20.2682 9.45028 20.7421 8.25694 20.742C7.0636 20.7419 5.91916 20.2678 5.07534 19.4239C4.23152 18.5801 3.75743 17.4357 3.75732 16.2423C3.75722 15.049 4.23112 13.9045 5.0748 13.0605L7.72645 10.4089"
+                              stroke="#5A42E6"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M17.2727 13.5904L19.9243 10.9388C20.768 10.0948 21.2419 8.95028 21.2418 7.75694C21.2417 6.5636 20.7676 5.41916 19.9238 4.57534C19.0799 3.73152 17.9355 3.25743 16.7422 3.25732C15.5488 3.25722 14.4043 3.73112 13.5603 4.5748L10.9087 7.22645"
+                              stroke="#5A42E6"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
 
-                  <p>نسخ الرابط</p>
-                </button>
+                          <p style={{color:'#5a42e6',padding:'0px 4px',fontFamily:'"cairoM"'}}> {t('copyDone')}  </p>
+                        </>
+                      ) : (
+                        <>
+                          <svg
+                            width="25"
+                            height="24"
+                            viewBox="0 0 25 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9.31787 15.1811L15.6818 8.81714"
+                              stroke="#5A42E6"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M14.0904 16.7728L11.4388 19.4245C10.5948 20.2682 9.45028 20.7421 8.25694 20.742C7.0636 20.7419 5.91916 20.2678 5.07534 19.4239C4.23152 18.5801 3.75743 17.4357 3.75732 16.2423C3.75722 15.049 4.23112 13.9045 5.0748 13.0605L7.72645 10.4089"
+                              stroke="#5A42E6"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M17.2727 13.5904L19.9243 10.9388C20.768 10.0948 21.2419 8.95028 21.2418 7.75694C21.2417 6.5636 20.7676 5.41916 19.9238 4.57534C19.0799 3.73152 17.9355 3.25743 16.7422 3.25732C15.5488 3.25722 14.4043 3.73112 13.5603 4.5748L10.9087 7.22645"
+                              stroke="#5A42E6"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+
+                          <p style={{color:'#5a42e6',padding:'0px 4px',fontFamily:'"cairoM"'}}>{t('copy')} </p>
+                        </>
+                      )}
+                    </Button>
+                  )}
+                </CopyButton>
+              
                 <EmailShareButton
                   style={{
                     background: "rgba(90, 66, 230, 0.35)",
@@ -104,7 +154,7 @@ function ModalJop({ data }) {
                     height: " 40px",
                     borderRadius: "50%",
                   }}
-                  url={"https://github.com/next-share"}
+                  url={window.location.href}
                 >
                   <svg
                     width="25"
@@ -150,7 +200,7 @@ function ModalJop({ data }) {
                     height: " 40px",
                     borderRadius: "50%",
                   }}
-                  url={"https://github.com/next-share"}
+                  url={window.location.href}
                 >
                   <svg
                     width="21"
@@ -185,7 +235,7 @@ function ModalJop({ data }) {
                     height: " 40px",
                     borderRadius: "50%",
                   }}
-                  url={"https://github.com/next-share"}
+                  url={window.location.href}
                 >
                   <svg
                     width="21"
@@ -208,7 +258,7 @@ function ModalJop({ data }) {
                     height: " 40px",
                     borderRadius: "50%",
                   }}
-                  url={"https://github.com/next-share"}
+                  url={window.location.href}
                 >
                   <svg
                     width="21"

@@ -85,8 +85,10 @@
       "cvPlace": "Upload your resume",
       "send": "send"
     },
-    "share": "Share job",
-    "copy": "copy link"
+    "share": "Share this job",
+    "copy": "copy link",
+    "copyDone": "Copied",
+    "job":"job"
   },
   "investor": {
     "title": "Join us on our journey of growth",
