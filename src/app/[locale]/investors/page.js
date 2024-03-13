@@ -5,10 +5,12 @@ import { Checkbox, FileInput, Input, Textarea } from "@mantine/core";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../navigation";
 import axios from "axios";
+import { notifications } from "@mantine/notifications";
 
-function page({params}) {
+function page({ params }) {
   const [investors, setInvestors] = useState("company");
   const t = useTranslations("investor");
+  const t2 = useTranslations("notfication");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -16,27 +18,14 @@ function page({params}) {
   const [message, setMessage] = useState("");
   const [type, setType] = useState(1);
   const [terms, setTerms] = useState(false);
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(null);
   const [nameErorr, setNameErorr] = useState("");
   const [emailErorr, setEmailErorr] = useState("");
   const [mobileErorr, setMobileErorr] = useState("");
   const [termsErorr, setTermsErorr] = useState("");
-
-  let CompleteData =
-    name && surname && email && mobile  && type && terms
-      ? true
-      : false;
-  console.log("====================================");
-  console.log(CompleteData);
-  console.log("====================================");
-  console.log(name);
-  console.log(surname);
-  console.log(email);
-  console.log(mobile);
-  console.log(message);
-  console.log(type);
-  console.log(terms);
   console.log(file);
+  let CompleteData =
+    name && surname && email && mobile && type && terms ? true : false;
 
   const handellogin = () => {
     const po = axios
@@ -56,12 +45,31 @@ function page({params}) {
           headers: {
             "Content-Type": "multipart/form-data",
             Accept: "application/json",
-            'Accept-Language':params.locale
+            "Accept-Language": params.locale,
           },
         }
       )
       .then((res) => {
         console.log(res);
+        notifications.show({
+          dir: "rtl",
+          icon: true,
+          top: 20,
+          autoClose: 15000,
+          title: t2("investorTitle"),
+          message: t2("investorDec"),
+        });
+        setName("");
+        setSurname("");
+        setEmail("");
+        setMobile("");
+        setMessage("");
+        setTerms("");
+        setFile(null);
+        setNameErorr("");
+        setEmailErorr("");
+        setMobileErorr("");
+        setTermsErorr("");
       })
       .catch((res) => {
         setNameErorr(
@@ -88,7 +96,6 @@ function page({params}) {
       });
   };
 
-  useEffect(() => {}, []);
   return (
     <>
       <HeaderPage
@@ -150,6 +157,7 @@ function page({params}) {
 
                     <div className="partInput">
                       <Input
+                        value={name}
                         error={nameErorr}
                         onChange={(e) => {
                           setName(e.target.value);
@@ -226,6 +234,7 @@ function page({params}) {
 
                     <div className="partInput">
                       <Input
+                        value={surname}
                         onChange={(e) => {
                           setSurname(e.target.value);
                         }}
@@ -264,6 +273,7 @@ function page({params}) {
 
                     <div className="partInput">
                       <Input
+                        value={email}
                         error={emailErorr}
                         onChange={(e) => {
                           setEmail(e.target.value);
@@ -321,6 +331,7 @@ function page({params}) {
                     <p className="codePhone">+966</p>
                     <div className="partInput">
                       <Input
+                        value={mobile}
                         error={mobileErorr}
                         onChange={(e) => {
                           setMobile(e.target.value);
@@ -406,6 +417,7 @@ function page({params}) {
 
                     <div className="partInput">
                       <FileInput
+                        value={file}
                         onChange={(e) => {
                           setFile(e);
                         }}
@@ -420,6 +432,7 @@ function page({params}) {
                   <div className="part">
                     <div className="partInput">
                       <Textarea
+                        value={message}
                         placeholder={t("jopTitlePlace")}
                         autosize
                         minRows={5}
@@ -433,11 +446,10 @@ function page({params}) {
               </div>
               <div className="checkPart">
                 <Checkbox
-               
                   checked={terms}
                   color="#5a42e6"
                   radius="xl"
-                  className={termsErorr ?  " chekError" :""}
+                  className={termsErorr ? " chekError" : ""}
                   onChange={(e) => {
                     setTerms(e.currentTarget.checked);
                   }}
@@ -447,14 +459,14 @@ function page({params}) {
                 </p>
               </div>
               {termsErorr && (
-                    <div className="errorInput">
-                      <p>{termsErorr}</p>
-                    </div>
-                  )}
+                <div className="errorInput">
+                  <p>{termsErorr}</p>
+                </div>
+              )}
               <input
                 type="submit"
                 className={CompleteData ? "btn_page " : "btn_page notActive"}
-               disabled={!CompleteData}
+                disabled={!CompleteData}
                 value={t("send")}
                 onClick={(e) => {
                   e.preventDefault(), handellogin();

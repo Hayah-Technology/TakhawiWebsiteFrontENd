@@ -106,7 +106,7 @@ function page({ params }) {
         </div>
       </section>
 
-      <ContactUS />
+      <ContactUS lang={params.locale} />
       {jobOne?.length > 0 ? (
         <ModalJop lang={params.locale} data={jobOne[0]} />
       ) : null}

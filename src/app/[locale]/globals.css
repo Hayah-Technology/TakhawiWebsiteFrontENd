@@ -1927,6 +1927,7 @@ form .formInput .part svg {
 form .formInput .part .partInput {
   flex: 1;
   height: 100%;
+  max-width: 100%;
 }
 
 form .formInput .part .partInput input,

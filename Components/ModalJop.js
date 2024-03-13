@@ -12,8 +12,6 @@ import React from "react";
 
 function ModalJop({ data, lang }) {
   const t = useTranslations('jobs');
-  console.log(data);
-  console.log(lang);
   return (
     <div
       className="modal jobsModel "
