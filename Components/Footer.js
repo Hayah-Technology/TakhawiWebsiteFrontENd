@@ -1,10 +1,26 @@
+"use client";
 import { useTranslations } from "next-intl";
 import { Link } from "../src/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Footer() {
   const t = useTranslations("home.footer");
+  const [Links, setLinks] = useState([]);
 
+  const handelData = () => {
+    const po = axios
+      .get("https://dashboard.takhawe.com/api/home")
+      .then((res) => {
+        setLinks(res.data.titles);
+      })
+      .catch((res) => {
+        console.log(res);
+      });
+  };
+  useEffect(() => {
+    handelData();
+  }, []);
   return (
     <footer>
       <div className="con">
@@ -101,7 +117,7 @@ function Footer() {
             <p>{t("dec")}</p>
             <ul>
               <li>
-                <a href="#">
+                <a href={Links?.youtube_link ? Links.youtube_link["en"] : "#"}>
                   <svg
                     width="20"
                     height="14"
@@ -117,7 +133,9 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a
+                  href={Links?.linkedin_link ? Links.linkedin_link["en"] : "#"}
+                >
                   <svg
                     width="18"
                     height="18"
@@ -133,7 +151,11 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a
+                  href={
+                    Links?.instagram_link ? Links.instagram_link["en"] : "#"
+                  }
+                >
                   <svg
                     width="18"
                     height="18"
@@ -151,7 +173,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href={Links?.twitter_link ? Links.twitter_link["en"] : "#"}>
                   <svg
                     width="18"
                     height="16"
@@ -167,7 +189,9 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a
+                  href={Links?.facebook_link ? Links.facebook_link["en"] : "#"}
+                >
                   <svg
                     width="10"
                     height="18"

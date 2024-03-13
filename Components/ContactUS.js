@@ -79,19 +79,7 @@ function ContactUS({ lang }) {
         );
       });
   };
-  const handelData = () => {
-    const po = axios
-      .get("https://dashboard.takhawe.com/api/data")
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((res) => {
-        console.log(res);
-      });
-  };
-  useEffect(() => {
-    handelData();
-  }, []);
+
   return (
     <section className="contactUS">
       <div className="con">

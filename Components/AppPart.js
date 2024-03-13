@@ -5,14 +5,15 @@ import React, { useEffect, useState } from "react";
 
 function AppPart() {
   const t = useTranslations("home");
-  const [AppData, setAppData] = useState("");
+  const [AppData1, setAppData1] = useState("");
+  const [AppData2, setAppData2] = useState("");
 
   const handelData = () => {
     const po = axios
-      .get("https://dashboard.takhawe.com/api")
+      .get("https://dashboard.takhawe.com/api/home")
       .then((res) => {
-        console.log(res);
-        
+        setAppData1(res.data.titles.google_play_link)
+        setAppData2(res.data.titles.app_store_link)
       })
       .catch((res) => {
         console.log(res);
@@ -39,7 +40,7 @@ function AppPart() {
             <p>{t("app.dec")}</p>
             <ul>
               <li>
-                <a href="">
+                <a href={AppData1?AppData1['en']:"#"}>
                   <div className="dec">
                     <p>
                       تحميل من متجر
@@ -74,7 +75,7 @@ function AppPart() {
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href={AppData2?AppData2['en']:"#"}>
                   <div className="dec">
                     <p>
                       تحميل من متجر

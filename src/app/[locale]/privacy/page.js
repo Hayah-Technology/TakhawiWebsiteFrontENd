@@ -37,11 +37,11 @@ function page({ params }) {
                     style={{ marginBottom: "20px" }}
                     key={item.id}
                   >
-                    <h3>{item.title_ar}</h3>
+                    <h3>{item.title[params.locale]}</h3>
 
                     <ul>
                       {item.definitions?.map((item2, i) => {
-                        return <li key={item2.id}>{item2.definition_ar}</li>;
+                        return <li key={item2.id}>{item2.definition[params.locale]}</li>;
                       })}
                     </ul>
                   </div>
