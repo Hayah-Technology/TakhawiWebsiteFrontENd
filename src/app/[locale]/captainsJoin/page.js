@@ -1,16 +1,59 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderPage from "../../../../Components/HeaderPage";
 import Captin from "../../../../Components/Captin";
-import { Checkbox, Input, PasswordInput, Select } from "@mantine/core";
+import {
+  Checkbox,
+  Input,
+  LoadingOverlay,
+  PasswordInput,
+  Select,
+} from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useTranslations } from "next-intl";
 import { Link } from "../../../navigation";
+import axios from "axios";
+import { getHomePage } from "../../../../Components/GetApi";
 
-function page() {
+function page({ params }) {
   const [state, setState] = useState(true);
-  const [FormOne, setFormOne] = useState(true);
+  const [FormOne, setFormOne] = useState(false);
   const t = useTranslations("captain");
+  /*data*/
+  const [dataColor, setDataColor] = useState([]);
+  const [carType, setCarType] = useState([]);
+  const [seatCounts, setSeatCounts] = useState([]);
+  const [carClass, setcarClass] = useState([]);
+  const [carName, setcarName] = useState([]);
+
+  const [name, setName] = useState("");
+  const [gender, setGender] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [terms, setTerms] = useState(false);
+  const [nameErorr, setNameErorr] = useState("");
+  const [genderErorr, setGenderErorr] = useState("");
+  const [emailErorr, setEmailErorr] = useState("");
+  const [mobileErorr, setMobileErorr] = useState("");
+  const [passwordErorr, setPasswordErorr] = useState("");
+  const [confirmPasswordErorr, setConfirmPasswordErorr] = useState("");
+  const [termsErorr, setTermsErorr] = useState("");
+  const [Loading, setLoading] = useState(false);
+  /*data 2*/
+  const [GetdataColor, setGetDataColor] = useState("");
+  const [GetcarType, setGetCarType] = useState("");
+  const [GetseatCounts, setGetSeatCounts] = useState("");
+  const [GetcarClass, setGetcarClass] = useState("");
+  const [GetcarName, setGetcarName] = useState("");
+  const [yearCar, setyearCar] = useState("");
+
+  let CompleteData =
+    name && gender && email && mobile && password && confirmPassword && terms
+      ? true
+      : false;
+
   const [selectedFile1, setSelectedFile1] = useState([]);
   const [selectedFile2, setSelectedFile2] = useState([]);
   const [selectedFile3, setSelectedFile3] = useState([]);
@@ -43,9 +86,230 @@ function page() {
       setSelectedFile4((oldArray) => [...oldArray, selectedFile4]);
     }
   };
-  console.log("====================================");
-  console.log(FormOne);
-  console.log("====================================");
+
+  const handelFormOne = () => {
+    setNameErorr("");
+    setEmailErorr("");
+    setMobileErorr("");
+    setTermsErorr("");
+    setGenderErorr("");
+    setPasswordErorr("");
+    setConfirmPasswordErorr("");
+    setLoading(true);
+    const po = axios
+      .post(
+        "https://dashboard.takhawe.com/api/captains",
+        {
+          name: name,
+          email: email,
+          mobile: mobile,
+          gender: gender,
+          password: password,
+          password_confirmation: confirmPassword,
+          terms_accepted: terms === true ? 1 : 0,
+          form: 1,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Accept-Language": params.locale,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+
+        setName("");
+        setEmail("");
+        setMobile("");
+        setTerms("");
+
+        setFormOne(false);
+      })
+      .catch((res) => {
+        setLoading(false);
+        console.log(res);
+
+        setNameErorr(
+          res.response.data?.errors?.name
+            ? res.response.data.errors.name[0]
+            : null
+        );
+        setEmailErorr(
+          res.response.data?.errors?.email
+            ? res.response.data.errors.email[0]
+            : null
+        );
+        setMobileErorr(
+          res.response?.data?.errors?.mobile
+            ? res.response?.data?.errors?.mobile[0]
+            : null
+        );
+        setTermsErorr(
+          res.response?.data?.errors?.terms_accepted
+            ? res.response?.data?.errors?.terms_accepted[0]
+            : null
+        );
+        setGenderErorr(
+          res.response?.data?.errors?.gender
+            ? res.response?.data?.errors?.gender[0]
+            : null
+        );
+
+        password.length >= 8
+          ? setConfirmPasswordErorr(
+              res.response?.data?.errors?.password
+                ? res.response?.data?.errors?.password[0]
+                : null
+            )
+          : setPasswordErorr(
+              res.response?.data?.errors?.password
+                ? res.response?.data?.errors?.password[0]
+                : null
+            );
+      });
+  };
+
+  useEffect(() => {
+    FetchDataOFHomePage();
+  }, []);
+
+  const FetchDataOFHomePage = async () => {
+    const AllData = await getHomePage();
+    if (AllData.error) {
+      console.log(AllData.error);
+    }
+    setDataColor([]);
+    setSeatCounts([]);
+    setCarType([]);
+    setcarClass([]);
+    setcarName([]);
+    AllData.colors.map((itemColor, i) => {
+      const item = {
+        value: `${itemColor.id}`,
+        label: itemColor.name[params.locale],
+      };
+      setDataColor((current) => [...current, item]);
+    });
+    AllData.seat_counts.map((itemSeat, i) => {
+      const item = { value: `${itemSeat.id}`, label: itemSeat.count };
+      setSeatCounts((current) => [...current, item]);
+    });
+    AllData.vehicle_types.map((itemType, i) => {
+      const item = {
+        value: `${itemType.id}`,
+        label: itemType.name[params.locale],
+      };
+      setCarType((current) => [...current, item]);
+    });
+    AllData.vehicle_categories.map((itemCarClass, i) => {
+      const item = {
+        value: `${itemCarClass.id}`,
+        label: itemCarClass.name[params.locale],
+      };
+      setcarClass((current) => [...current, item]);
+    });
+    AllData.vehicles.map((itemCarName, i) => {
+      const item = {
+        value: `${itemCarName.id}`,
+        label: itemCarName.name[params.locale],
+      };
+      setcarName((current) => [...current, item]);
+    });
+  };
+  const handelFormTwo = () => {
+    setNameErorr("");
+    setEmailErorr("");
+    setMobileErorr("");
+    setTermsErorr("");
+    setGenderErorr("");
+    setPasswordErorr("");
+    setConfirmPasswordErorr("");
+    setLoading(true);
+    const po = axios
+      .post(
+        "https://dashboard.takhawe.com/api/captains",
+        {
+          name: name,
+          email: email,
+          mobile: mobile,
+          gender: gender,
+          password: password,
+          password_confirmation: confirmPassword,
+          terms_accepted: terms === true ? 1 : 0,
+          form: 2,
+          color_id : GetdataColor,
+          identity_type: GetcarType,
+          seat_count_id: GetseatCounts,
+          vehicle_category_id: GetcarClass,
+          vehicle_id: GetcarName,
+          production_year: yearCar,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Accept-Language": params.locale,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+
+        setName("");
+        setEmail("");
+        setMobile("");
+        setTerms("");
+
+        setFormOne(false);
+      })
+      .catch((res) => {
+        setLoading(false);
+        console.log(res);
+
+        setNameErorr(
+          res.response.data?.errors?.name
+            ? res.response.data.errors.name[0]
+            : null
+        );
+        setEmailErorr(
+          res.response.data?.errors?.email
+            ? res.response.data.errors.email[0]
+            : null
+        );
+        setMobileErorr(
+          res.response?.data?.errors?.mobile
+            ? res.response?.data?.errors?.mobile[0]
+            : null
+        );
+        setTermsErorr(
+          res.response?.data?.errors?.terms_accepted
+            ? res.response?.data?.errors?.terms_accepted[0]
+            : null
+        );
+        setGenderErorr(
+          res.response?.data?.errors?.gender
+            ? res.response?.data?.errors?.gender[0]
+            : null
+        );
+
+        password.length >= 8
+          ? setConfirmPasswordErorr(
+              res.response?.data?.errors?.password
+                ? res.response?.data?.errors?.password[0]
+                : null
+            )
+          : setPasswordErorr(
+              res.response?.data?.errors?.password
+                ? res.response?.data?.errors?.password[0]
+                : null
+            );
+      });
+  };
+
   return (
     <>
       <HeaderPage
@@ -54,6 +318,12 @@ function page() {
         img={"/images/captain.png"}
       />
       <Captin />
+      <LoadingOverlay
+        visible={Loading}
+        loaderProps={{ color: "#5a42e6" }}
+        zIndex={1000}
+        overlayProps={{ radius: "sm", blur: 2 }}
+      />
       {FormOne ? (
         <section className="investors">
           <div className="con">
@@ -86,9 +356,21 @@ function page() {
                       </svg>
 
                       <div className="partInput">
-                        <Input placeholder={t("namePlac")} />
+                        <Input
+                          value={name}
+                          error={nameErorr}
+                          placeholder={t("namePlac")}
+                          onChange={(e) => {
+                            setName(e.target.value);
+                          }}
+                        />
                       </div>
                     </div>
+                    {nameErorr && (
+                      <div className="errorInput">
+                        <p>{nameErorr}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label>{t("gender")} </label>
@@ -132,9 +414,23 @@ function page() {
                       </svg>
 
                       <div className="partInput">
-                        <Input placeholder={t("genderPlace")} />
+                        <Select
+                          placeholder={t("genderPlace")}
+                          onChange={setGender}
+                          value={gender}
+                          error={genderErorr}
+                          data={[
+                            { value: "1", label: "Male" },
+                            { value: "2", label: "Female" },
+                          ]}
+                        />
                       </div>
                     </div>
+                    {genderErorr && (
+                      <div className="errorInput">
+                        <p>{genderErorr}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label>{t("email")} </label>
@@ -165,9 +461,21 @@ function page() {
                       </svg>
 
                       <div className="partInput">
-                        <Input placeholder={t("emailPlac")} />
+                        <Input
+                          value={email}
+                          error={emailErorr}
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                          }}
+                          placeholder={t("emailPlac")}
+                        />
                       </div>
                     </div>
+                    {emailErorr && (
+                      <div className="errorInput">
+                        <p>{emailErorr}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label>{t("num")} </label>
@@ -211,9 +519,21 @@ function page() {
 
                       <p className="codePhone">+966</p>
                       <div className="partInput">
-                        <Input placeholder={t("numPlace")} />
+                        <Input
+                          value={mobile}
+                          error={mobileErorr}
+                          onChange={(e) => {
+                            setMobile(e.target.value);
+                          }}
+                          placeholder={t("numPlace")}
+                        />
                       </div>
                     </div>
+                    {mobileErorr && (
+                      <div className="errorInput">
+                        <p>{mobileErorr}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label>{t("pass")} </label>
@@ -234,9 +554,21 @@ function page() {
                       </svg>
 
                       <div className="partInput">
-                        <PasswordInput placeholder={t("passPlace")} />
+                        <PasswordInput
+                          value={password}
+                          error={passwordErorr}
+                          onChange={(e) => {
+                            setPassword(e.target.value);
+                          }}
+                          placeholder={t("passPlace")}
+                        />
                       </div>
                     </div>
+                    {passwordErorr && (
+                      <div className="errorInput">
+                        <p>{passwordErorr}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label>{t("pass2")} </label>
@@ -257,29 +589,50 @@ function page() {
                       </svg>
 
                       <div className="partInput">
-                        <PasswordInput placeholder={t("pass2Place")} />
+                        <PasswordInput
+                          value={confirmPassword}
+                          error={confirmPasswordErorr}
+                          onChange={(e) => {
+                            setConfirmPassword(e.target.value);
+                          }}
+                          placeholder={t("pass2Place")}
+                        />
                       </div>
                     </div>
+                    {confirmPasswordErorr && (
+                      <div className="errorInput">
+                        <p>{confirmPasswordErorr}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="checkPart">
                   <Checkbox
-                    defaultChecked
+                    checked={terms}
                     color="#5a42e6"
                     radius="xl"
-                    className="chekError"
+                    className={termsErorr ? " chekError" : ""}
+                    onChange={(e) => {
+                      setTerms(e.currentTarget.checked);
+                    }}
                   />
                   <p>
                     {t("agree")} <Link href="/conditions">{t("agree2")}</Link>
                   </p>
                 </div>
+                {termsErorr && (
+                  <div className="errorInput">
+                    <p>{termsErorr}</p>
+                  </div>
+                )}
                 <input
                   type="submit"
-                  className="btn_page notActive"
+                  className={CompleteData ? "btn_page " : "btn_page notActive"}
+                  disabled={!CompleteData}
                   value={t("next")}
                   onClick={(e) => {
                     e.preventDefault();
-                    setFormOne(false);
+                    handelFormOne();
                   }}
                 />
               </form>
@@ -887,8 +1240,15 @@ function page() {
 
                       <div className="partInput">
                         <Select
+                          searchable
+                          clearable
+                          onChange={setGetcarClass}
+                          withScrollArea={false}
+                          styles={{
+                            dropdown: { maxHeight: 200, overflowY: "auto" },
+                          }}
                           placeholder={t("classDec")}
-                          data={["شاحنة", "2شاحنة", "3شاحنة", "4شاحنة"]}
+                          data={carClass}
                         />
                       </div>
                     </div>
@@ -937,8 +1297,15 @@ function page() {
 
                       <div className="partInput">
                         <Select
+                          searchable
+                          clearable
+                          onChange={setGetSeatCounts}
+                          withScrollArea={false}
+                          styles={{
+                            dropdown: { maxHeight: 200, overflowY: "auto" },
+                          }}
                           placeholder={t("seatsDec")}
-                          data={["4", "7", "5", "2"]}
+                          data={seatCounts}
                         />
                       </div>
                     </div>
@@ -988,7 +1355,14 @@ function page() {
                       <div className="partInput">
                         <Select
                           placeholder={t("colorDec")}
-                          data={["رمادي", "ابيض", "اسود", "احمر"]}
+                          searchable
+                          clearable
+                          onChange={setGetDataColor}
+                          data={dataColor}
+                          withScrollArea={false}
+                          styles={{
+                            dropdown: { maxHeight: 200, overflowY: "auto" },
+                          }}
                         />
                       </div>
                     </div>
@@ -1037,8 +1411,15 @@ function page() {
 
                       <div className="partInput">
                         <Select
+                          searchable
+                          clearable
+                          onChange={setGetCarType}
+                          withScrollArea={false}
+                          styles={{
+                            dropdown: { maxHeight: 200, overflowY: "auto" },
+                          }}
                           placeholder={t("typeDec")}
-                          data={["مرسيدس", "هونداي", "كيا", "تيوتا"]}
+                          data={carType}
                         />
                       </div>
                     </div>
@@ -1087,13 +1468,15 @@ function page() {
 
                       <div className="partInput">
                         <Select
+                          searchable
+                          clearable
+                          onChange={setGetcarName}
+                          withScrollArea={false}
+                          styles={{
+                            dropdown: { maxHeight: 200, overflowY: "auto" },
+                          }}
                           placeholder={t("nameCarDec")}
-                          data={[
-                            "مرسيدس بنز ",
-                            "مرسيدس بنز 1",
-                            "مرسيدس بنز G-Wagon2",
-                            "مرسيدس بنز G-Wagon5",
-                          ]}
+                          data={carName}
                         />
                       </div>
                     </div>
@@ -1142,6 +1525,13 @@ function page() {
 
                       <div className="partInput">
                         <Select
+                          searchable
+                          clearable
+                          onChange={setyearCar}
+                          withScrollArea={false}
+                          styles={{
+                            dropdown: { maxHeight: 200, overflowY: "auto" },
+                          }}
                           placeholder={t("yearCarDec")}
                           data={["2005", "2007", "2008", "2009"]}
                         />
@@ -1164,6 +1554,7 @@ function page() {
                   <input
                     onClick={(e) => {
                       e.preventDefault();
+                      handelFormTwo();
                       state &&
                         notifications.show({
                           dir: "rtl",

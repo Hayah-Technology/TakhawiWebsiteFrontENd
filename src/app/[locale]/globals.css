@@ -475,7 +475,7 @@ footer {
 }
 footer .content {
   display: flex;
-  gap: 10px 180px;
+  gap: 10px 80px;
   flex-wrap: wrap;
 }
 footer .content .part1 {
@@ -2807,4 +2807,10 @@ html[dir="ltr"] .mantine-Notification-root {
 }
 .mantine-LoadingOverlay-root{
   position: fixed;
+}
+.mantine-PasswordInput-error{
+  display: none;
+}
+.mantine-Select-error{
+  display: none;
 }
