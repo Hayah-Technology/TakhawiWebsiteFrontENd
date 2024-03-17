@@ -16,7 +16,7 @@ import axios from "axios";
 import { getHomePage } from "../../../../Components/GetApi";
 
 function page({ params }) {
-  const [FormOne, setFormOne] = useState(false);
+  const [FormOne, setFormOne] = useState(true);
   const t = useTranslations("captain");
   /*data*/
   const [dataColor, setDataColor] = useState([]);
@@ -146,13 +146,9 @@ function page({ params }) {
       .then((res) => {
         console.log(res);
         setLoading(false);
-
-        setName("");
-        setEmail("");
-        setMobile("");
-        setTerms("");
-
-        setFormOne(false);
+      
+res.data.status === 200 ? setFormOne(false) :null
+        
       })
       .catch((res) => {
         setLoading(false);
@@ -269,12 +265,12 @@ function page({ params }) {
     setErrorFile3("");
     setErrorFile4("");
     setLoading(true);
-    body.append("name", 'namedd');
-    body.append("email", 'emaiffl@gm');
-    body.append("mobile", '0127690349');
+    body.append("name", name);
+    body.append("email", email);
+    body.append("mobile", mobile);
     body.append("gender", 1);
-    body.append("password", '11111111');
-    body.append("password_confirmation", '11111111');
+    body.append("password", password);
+    body.append("password_confirmation", confirmPassword);
     body.append("terms_accepted", 1);
     body.append("color_id", GetdataColor);
     body.append("vehicle_type_id", GetcarType);
@@ -289,22 +285,22 @@ function page({ params }) {
 
     if (selectedFile1.length > 0) {
       selectedFile1.map((item, i) => {
-        body.append(`identity_type[${i}]`, item);
+        body.append(`identity_types[${i}]`, item);
       });
     }
     if (selectedFile2.length > 0) {
       selectedFile2.map((item, i) => {
-        body.append(`driving_license[${i}]`, item);
+        body.append(`driving_licenses[${i}]`, item);
       });
     }
     if (selectedFile3.length > 0) {
       selectedFile3.map((item, i) => {
-        body.append(`vehicle_registration[${i}]`, item);
+        body.append(`vehicle_registrations[${i}]`, item);
       });
     }
     if (selectedFile4.length > 0) {
       selectedFile4.map((item, i) => {
-        body.append(`vehicle_image[${i}]`, item);
+        body.append(`vehicle_images[${i}]`, item);
       });
     }
     const po = axios
