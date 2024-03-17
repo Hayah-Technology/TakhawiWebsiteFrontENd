@@ -17,7 +17,7 @@ import { getHomePage } from "../../../../Components/GetApi";
 
 function page({ params }) {
   const [state, setState] = useState(true);
-  const [FormOne, setFormOne] = useState(false);
+  const [FormOne, setFormOne] = useState(true);
   const t = useTranslations("captain");
   /*data*/
   const [dataColor, setDataColor] = useState([]);
@@ -48,12 +48,39 @@ function page({ params }) {
   const [GetcarClass, setGetcarClass] = useState("");
   const [GetcarName, setGetcarName] = useState("");
   const [yearCar, setyearCar] = useState("");
-
+  const [idNumCar, setIdNumCar] = useState("");
+  const [serialNumCar, setSerialNumCar] = useState("");
+  const [vehicleNumCar, setVehicleNumCar] = useState("");
+  /*Error data 2*/
+  const [ErrorGetdataColor, setErrorGetDataColor] = useState("");
+  const [ErrorGetcarType, setErrorGetCarType] = useState("");
+  const [ErrorGetseatCounts, setErrorGetSeatCounts] = useState("");
+  const [ErrorGetcarClass, setErrorGetcarClass] = useState("");
+  const [ErrorGetcarName, setErrorGetcarName] = useState("");
+  const [ErroryearCar, setErroryearCar] = useState("");
+  const [ErroridNumCar, setErrorIdNumCar] = useState("");
+  const [ErrorserialNumCar, setErrorSerialNumCar] = useState("");
+  const [ErrorvehicleNumCar, setErrorVehicleNumCar] = useState("");
+  const [ErrorFile1, setErrorFile1] = useState("");
+  const [ErrorFile2, setErrorFile2] = useState("");
+  const [ErrorFile3, setErrorFile3] = useState("");
+  const [ErrorFile4, setErrorFile4] = useState("");
   let CompleteData =
     name && gender && email && mobile && password && confirmPassword && terms
       ? true
       : false;
-
+  let AllData =
+    GetdataColor &&
+    GetcarType &&
+    GetseatCounts &&
+    GetcarClass &&
+    GetcarName &&
+    yearCar &&
+    idNumCar &&
+    serialNumCar &&
+    vehicleNumCar
+      ? true
+      : false;
   const [selectedFile1, setSelectedFile1] = useState([]);
   const [selectedFile2, setSelectedFile2] = useState([]);
   const [selectedFile3, setSelectedFile3] = useState([]);
@@ -227,6 +254,19 @@ function page({ params }) {
     setGenderErorr("");
     setPasswordErorr("");
     setConfirmPasswordErorr("");
+    setErrorGetDataColor("");
+    setErrorGetCarType("");
+    setErrorGetSeatCounts("");
+    setErrorGetcarClass("");
+    setErrorGetcarName("");
+    setErroryearCar("");
+    setErrorIdNumCar("");
+    setErrorSerialNumCar("");
+    setErrorVehicleNumCar("");
+    setErrorFile1("");
+    setErrorFile2("");
+    setErrorFile3("");
+    setErrorFile4("");
     setLoading(true);
     const po = axios
       .post(
@@ -240,16 +280,23 @@ function page({ params }) {
           password_confirmation: confirmPassword,
           terms_accepted: terms === true ? 1 : 0,
           form: 2,
-          color_id : GetdataColor,
-          identity_type: GetcarType,
+          color_id: GetdataColor,
+          vehicle_type_id: GetcarType,
           seat_count_id: GetseatCounts,
           vehicle_category_id: GetcarClass,
           vehicle_id: GetcarName,
           production_year: yearCar,
+          identity_number: idNumCar,
+          serial_number: serialNumCar,
+          vehicle_number: vehicleNumCar,
+          identity_type: selectedFile1,
+          driving_license: selectedFile2,
+          vehicle_registration: selectedFile3,
+          vehicle_image: selectedFile4,
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
             Accept: "application/json",
             "Accept-Language": params.locale,
           },
@@ -258,55 +305,75 @@ function page({ params }) {
       .then((res) => {
         console.log(res);
         setLoading(false);
-
         setName("");
         setEmail("");
         setMobile("");
         setTerms("");
-
         setFormOne(false);
+        notifications.show({
+          dir: "rtl",
+          icon: true,
+          top: 20,
+          autoClose: 15000,
+          title: t("notifTitle"),
+          message: t("notifMessage"),
+        });
       })
       .catch((res) => {
         setLoading(false);
         console.log(res);
 
-        setNameErorr(
-          res.response.data?.errors?.name
-            ? res.response.data.errors.name[0]
-            : null
-        );
-        setEmailErorr(
-          res.response.data?.errors?.email
-            ? res.response.data.errors.email[0]
-            : null
-        );
-        setMobileErorr(
-          res.response?.data?.errors?.mobile
-            ? res.response?.data?.errors?.mobile[0]
-            : null
-        );
-        setTermsErorr(
-          res.response?.data?.errors?.terms_accepted
-            ? res.response?.data?.errors?.terms_accepted[0]
-            : null
-        );
-        setGenderErorr(
-          res.response?.data?.errors?.gender
-            ? res.response?.data?.errors?.gender[0]
+        setErrorGetDataColor(
+          res.response.data?.errors?.color_id
+            ? res.response.data.errors.color_id[0]
             : null
         );
 
-        password.length >= 8
-          ? setConfirmPasswordErorr(
-              res.response?.data?.errors?.password
-                ? res.response?.data?.errors?.password[0]
-                : null
-            )
-          : setPasswordErorr(
-              res.response?.data?.errors?.password
-                ? res.response?.data?.errors?.password[0]
-                : null
-            );
+        setErroryearCar(
+          res.response?.data?.errors?.production_year
+            ? res.response?.data?.errors?.production_year[0]
+            : null
+        );
+        setErrorIdNumCar(
+          res.response?.data?.errors?.identity_number
+            ? res.response?.data?.errors?.identity_number[0]
+            : null
+        );
+        setErrorGetSeatCounts(
+          res.response?.data?.errors?.seat_count_id
+            ? res.response?.data?.errors?.seat_count_id[0]
+            : null
+        );
+        setErrorSerialNumCar(
+          res.response?.data?.errors?.serial_number
+            ? res.response?.data?.errors?.serial_number[0]
+            : null
+        );
+        setErrorGetcarClass(
+          res.response?.data?.errors?.vehicle_category_id
+            ? res.response?.data?.errors?.vehicle_category_id[0]
+            : null
+        );
+        setErrorGetcarName(
+          res.response?.data?.errors?.vehicle_id
+            ? res.response?.data?.errors?.vehicle_id[0]
+            : null
+        );
+        setErrorVehicleNumCar(
+          res.response?.data?.errors?.vehicle_number
+            ? res.response?.data?.errors?.vehicle_number[0]
+            : null
+        );
+        setErrorGetCarType(
+          res.response?.data?.errors?.vehicle_type_id
+            ? res.response?.data?.errors?.vehicle_type_id[0]
+            : null
+        );
+        setErrorGetCarType(
+          res.response?.data?.errors?.vehicle_type_id
+            ? res.response?.data?.errors?.vehicle_type_id[0]
+            : null
+        );
       });
   };
 
@@ -716,6 +783,12 @@ function page({ params }) {
                           );
                         })}
                     </div>
+                    {ErrorFile1 && (
+                      <div className="errorInput">
+                        <img src="/images/note.png" alt="error" />
+                        <p>{ErrorFile1} </p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label>{t("numIdentityTitle")} </label>
@@ -736,9 +809,19 @@ function page({ params }) {
                       </svg>
 
                       <div className="partInput">
-                        <Input placeholder={t("numIdentityDec")} />
+                        <Input
+                          onChange={(e) => {
+                            setIdNumCar(e.target.value);
+                          }}
+                          placeholder={t("numIdentityDec")}
+                        />
                       </div>
                     </div>
+                    {ErroridNumCar && (
+                      <div className="errorInput">
+                        <p>{ErroridNumCar}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts  ">
                     <label>{t("licenseTitle")} </label>
@@ -822,6 +905,12 @@ function page({ params }) {
                           );
                         })}
                     </div>
+                    {ErrorFile2 && (
+                      <div className="errorInput">
+                        <img src="/images/note.png" alt="error" />
+                        <p>{ErrorFile2} </p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts  ">
                     <label>{t("cartTitle")} </label>
@@ -917,6 +1006,12 @@ function page({ params }) {
                           );
                         })}
                     </div>
+                    {ErrorFile3 && (
+                      <div className="errorInput">
+                        <img src="/images/note.png" alt="error" />
+                        <p>{ErrorFile3} </p>
+                      </div>
+                    )}
                   </div>
 
                   <div className="parts ">
@@ -1080,9 +1175,19 @@ function page({ params }) {
                       </svg>
 
                       <div className="partInput">
-                        <Input placeholder={t("serialDec")} />
+                        <Input
+                          onChange={(e) => {
+                            setSerialNumCar(e.target.value);
+                          }}
+                          placeholder={t("serialDec")}
+                        />
                       </div>
                     </div>
+                    {ErrorserialNumCar && (
+                      <div className="errorInput">
+                        <p>{ErrorserialNumCar}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label> {t("NumCarTitle")} </label>
@@ -1090,9 +1195,19 @@ function page({ params }) {
                       <img src="/images/carNum.png" alt="carNum" />
 
                       <div className="partInput">
-                        <Input placeholder={t("NumCarDec")} />
+                        <Input
+                          onChange={(e) => {
+                            setVehicleNumCar(e.target.value);
+                          }}
+                          placeholder={t("NumCarDec")}
+                        />
                       </div>
                     </div>
+                    {ErrorvehicleNumCar && (
+                      <div className="errorInput">
+                        <p>{ErrorvehicleNumCar}</p>
+                      </div>
+                    )}
                   </div>
 
                   <div className="parts  ">
@@ -1189,10 +1304,13 @@ function page({ params }) {
                           );
                         })}
                     </div>
-                    <div className="errorInput">
-                      <img src="/images/note.png" alt="error" />
-                      <p>{t("errorImgCar")} </p>
-                    </div>
+
+                    {ErrorFile4 && (
+                      <div className="errorInput">
+                        <img src="/images/note.png" alt="error" />
+                        <p>{ErrorFile4} </p>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="formInput formInput2  ">
@@ -1252,6 +1370,11 @@ function page({ params }) {
                         />
                       </div>
                     </div>
+                    {ErrorGetcarClass && (
+                      <div className="errorInput">
+                        <p>{ErrorGetcarClass}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label> {t("seatsTitle")} </label>
@@ -1309,6 +1432,11 @@ function page({ params }) {
                         />
                       </div>
                     </div>
+                    {ErrorGetseatCounts && (
+                      <div className="errorInput">
+                        <p>{ErrorGetseatCounts}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label> {t("colorTitle")} </label>
@@ -1366,6 +1494,11 @@ function page({ params }) {
                         />
                       </div>
                     </div>
+                    {ErrorGetdataColor && (
+                      <div className="errorInput">
+                        <p>{ErrorGetdataColor}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label> {t("typeTitle")} </label>
@@ -1423,6 +1556,11 @@ function page({ params }) {
                         />
                       </div>
                     </div>
+                    {ErrorGetcarType && (
+                      <div className="errorInput">
+                        <p>{ErrorGetcarType}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label> {t("nameCarTitle")}</label>
@@ -1480,6 +1618,11 @@ function page({ params }) {
                         />
                       </div>
                     </div>
+                    {ErrorGetcarName && (
+                      <div className="errorInput">
+                        <p>{ErrorGetcarName}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="parts ">
                     <label>{t("yearCarTitle")} </label>
@@ -1537,6 +1680,11 @@ function page({ params }) {
                         />
                       </div>
                     </div>
+                    {ErroryearCar && (
+                      <div className="errorInput">
+                        <p>{ErroryearCar}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -1555,18 +1703,10 @@ function page({ params }) {
                     onClick={(e) => {
                       e.preventDefault();
                       handelFormTwo();
-                      state &&
-                        notifications.show({
-                          dir: "rtl",
-                          icon: true,
-                          top: 20,
-                          autoClose: 15000,
-                          title: t("notifTitle"),
-                          message: t("notifMessage"),
-                        });
                     }}
+                    disabled={!AllData}
                     type="submit"
-                    className="btn_page notActive"
+                    className={AllData ? "btn_page " : "btn_page notActive"}
                     value={t("craete")}
                   />
                 </div>
