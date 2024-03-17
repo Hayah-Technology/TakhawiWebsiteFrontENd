@@ -16,8 +16,7 @@ import axios from "axios";
 import { getHomePage } from "../../../../Components/GetApi";
 
 function page({ params }) {
-  const [state, setState] = useState(true);
-  const [FormOne, setFormOne] = useState(true);
+  const [FormOne, setFormOne] = useState(false);
   const t = useTranslations("captain");
   /*data*/
   const [dataColor, setDataColor] = useState([]);
@@ -247,6 +246,8 @@ function page({ params }) {
     });
   };
   const handelFormTwo = () => {
+    const url = new URL("https://dashboard.takhawe.com/api/captains");
+    const body = new FormData();
     setNameErorr("");
     setEmailErorr("");
     setMobileErorr("");
@@ -268,40 +269,52 @@ function page({ params }) {
     setErrorFile3("");
     setErrorFile4("");
     setLoading(true);
+    body.append("name", 'namedd');
+    body.append("email", 'emaiffl@gm');
+    body.append("mobile", '0127690349');
+    body.append("gender", 1);
+    body.append("password", '11111111');
+    body.append("password_confirmation", '11111111');
+    body.append("terms_accepted", 1);
+    body.append("color_id", GetdataColor);
+    body.append("vehicle_type_id", GetcarType);
+    body.append("seat_count_id", GetseatCounts);
+    body.append("form", 2);
+    body.append("vehicle_category_id", GetcarClass);
+    body.append("vehicle_id", GetcarName);
+    body.append("production_year", yearCar);
+    body.append("identity_number", idNumCar);
+    body.append("serial_number", serialNumCar);
+    body.append("vehicle_number", vehicleNumCar);
+
+    if (selectedFile1.length > 0) {
+      selectedFile1.map((item, i) => {
+        body.append(`identity_type[${i}]`, item);
+      });
+    }
+    if (selectedFile2.length > 0) {
+      selectedFile2.map((item, i) => {
+        body.append(`driving_license[${i}]`, item);
+      });
+    }
+    if (selectedFile3.length > 0) {
+      selectedFile3.map((item, i) => {
+        body.append(`vehicle_registration[${i}]`, item);
+      });
+    }
+    if (selectedFile4.length > 0) {
+      selectedFile4.map((item, i) => {
+        body.append(`vehicle_image[${i}]`, item);
+      });
+    }
     const po = axios
-      .post(
-        "https://dashboard.takhawe.com/api/captains",
-        {
-          name: name,
-          email: email,
-          mobile: mobile,
-          gender: gender,
-          password: password,
-          password_confirmation: confirmPassword,
-          terms_accepted: terms === true ? 1 : 0,
-          form: 2,
-          color_id: GetdataColor,
-          vehicle_type_id: GetcarType,
-          seat_count_id: GetseatCounts,
-          vehicle_category_id: GetcarClass,
-          vehicle_id: GetcarName,
-          production_year: yearCar,
-          identity_number: idNumCar,
-          serial_number: serialNumCar,
-          vehicle_number: vehicleNumCar,
-          identity_type: selectedFile1,
-          driving_license: selectedFile2,
-          vehicle_registration: selectedFile3,
-          vehicle_image: selectedFile4,
+      .post(url, body, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Accept: "application/json",
+          "Accept-Language": params.locale,
         },
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Accept: "application/json",
-            "Accept-Language": params.locale,
-          },
-        }
-      )
+      })
       .then((res) => {
         console.log(res);
         setLoading(false);
