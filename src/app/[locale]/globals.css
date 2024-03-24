@@ -2612,6 +2612,7 @@ form .partImgFile .partImg svg:hover {
   transform: rotate3d(1, 1, 5, -180deg) translateY(-50%);
   right: 35%;
   top: 42%;
+  z-index: 0;
 }
 html[dir=ltr] .pulse{
   left: 60%;
