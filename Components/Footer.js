@@ -4,9 +4,11 @@ import { Link } from "../src/navigation";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Footer() {
+function Footer({locale}) {
+  console.log(locale);
   const t = useTranslations("home.footer");
   const [Links, setLinks] = useState([]);
+  const [Address, setAddress] = useState([]);
 
   const handelData = () => {
     const po = axios
@@ -247,7 +249,7 @@ function Footer() {
               <ul>
                 <li>
                   <a href="mailto:takhawy@gmail.com">
-                    شركه NOB,طريق عثمان بن عفان,الرياض{" "}
+                   {Links?.address?Links.address[locale]:""}
                   </a>
                 </li>
               </ul>

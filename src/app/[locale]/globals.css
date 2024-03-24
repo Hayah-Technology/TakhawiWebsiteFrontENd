@@ -2610,13 +2610,12 @@ form .partImgFile .partImg svg:hover {
   border-radius: 100%;
   position: relative;
   transform: rotate3d(1, 1, 5, -180deg) translateY(-50%);
-  right: 35%;
+  left: -35%;
   top: 42%;
   z-index: 0;
 }
 html[dir=ltr] .pulse{
   left: 60%;
-  right: auto;
 }
 .ring {
   position: absolute;
@@ -2657,11 +2656,10 @@ html[dir=ltr] .pulse{
 
 @media (max-width: 1200px) {
   .pulse {
-    right: 32%;
+    left: -32%;
   }
   html[dir=ltr] .pulse{
     left: 57%;
-    right: auto;
   }
 }
 @media (max-width: 768px) {
@@ -2671,11 +2669,10 @@ html[dir=ltr] .pulse{
 }
 @media (max-width: 430px) {
   .pulse {
-    right: 32%;
+    left: -32%;
   }
   html[dir="ltr"] .pulse{
     left: 56%;
-    right: auto;
   }
   .app .content .part1 {
     height: 416px;
