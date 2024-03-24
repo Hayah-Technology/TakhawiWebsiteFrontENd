@@ -35,7 +35,7 @@ function AppPart() {
             <div className="ring"></div>
             <div className="ring"></div>
           </div> 
-            <img src="/images/AppImg.png" alt="app" />
+            <img src="/images/app.webp" alt="app" />
           </div>
           <div className="part2">
             <h2>{t("app.title")}!</h2>

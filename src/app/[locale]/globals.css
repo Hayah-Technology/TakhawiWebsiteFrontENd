@@ -1042,7 +1042,8 @@ html[dir="ltr"] .header .content .boxImg {
 
 .navbar {
   padding-top: 1rem;
-  background-color: white;
+  background-color: #ffffff8c;
+  backdrop-filter: blur(11px);
 }
 .navbar .con {
   width: 100%;
@@ -2608,10 +2609,10 @@ form .partImgFile .partImg svg:hover {
   height: 50px;
   width: 50px;
   border-radius: 100%;
-  position: relative;
+  position: absolute;
   transform: rotate3d(1, 1, 5, -180deg) translateY(-50%);
   left: -35%;
-  top: 42%;
+  top: 36%;
   z-index: 0;
 }
 html[dir=ltr] .pulse{
