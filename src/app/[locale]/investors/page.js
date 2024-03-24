@@ -341,6 +341,7 @@ function page({ params }) {
                     <div className="partInput">
                       <Input
                         value={mobile}
+                        maxLength={9}
                         error={mobileErorr}
                         onChange={(e) => {
                           setMobile(e.target.value);

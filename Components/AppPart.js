@@ -26,13 +26,14 @@ function AppPart() {
     <section className="app" id="app">
       <div className="con">
         <div className="content">
+          
           <div className="part1">
-            {/* <div class="pulse">
+          <div class="pulse">
             <div class="ring"></div>
             <div class="ring"></div>
             <div class="ring"></div>
             <div class="ring"></div>
-          </div> */}
+          </div> 
             <img src="/images/AppImg.png" alt="app" />
           </div>
           <div className="part2">

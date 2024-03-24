@@ -182,6 +182,7 @@ function ContactUS({ lang }) {
                   <div className="partInput">
                     <Input
                       value={mobile}
+                      maxLength={9}
                       placeholder={t("numPlace")}
                       onChange={(e) => {
                         setMobile(e.target.value);

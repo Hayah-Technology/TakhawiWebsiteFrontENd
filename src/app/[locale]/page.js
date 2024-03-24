@@ -1,24 +1,22 @@
 import { useTranslations } from "next-intl";
 import "./globals.css";
 import { Link } from "../../navigation";
-import AppPart from '../../../Components/AppPart'
-import Questions from '../../../Components/Questions'
+import AppPart from "../../../Components/AppPart";
+import Questions from "../../../Components/Questions";
 
-export default function Home({params}) {
+export default function Home({ params }) {
   const t = useTranslations("home");
   return (
     <main>
       <section className="header">
-        <div className="con">
-          <div className="content">
-            <div className="boxImg">
-              <img src="/images/headerImg.webp" alt="header Img" />
-            </div>
+        <div className="content">
+          <div className="boxImg">
+            <img src="/images/headerImg.webp" alt="header Img" />
+          </div>
 
-            <div className="dec">
-              <h1>{t("about.title1")}</h1>
-              <p>{t("about.dec")}</p>
-            </div>
+          <div className="dec">
+            <h1>{t("about.title1")}</h1>
+            <p>{t("about.dec")}</p>
           </div>
         </div>
       </section>
@@ -76,38 +74,38 @@ export default function Home({params}) {
           </div>
         </div>
       </section>
- <AppPart/>
+      <AppPart />
 
       <section className="goals">
         <div className="con">
           <div className="content">
             <div className="part">
-              <h2>  {t("goals.title1")}</h2>
-              <p>
-              {t("goals.dec1")}
-              </p>
+              <h2> {t("goals.title1")}</h2>
+              <p>{t("goals.dec1")}</p>
             </div>
             <div className="part">
               <h2>{t("goals.title2")}</h2>
-              <p>
-              {t("goals.dec2")}
-              </p>
+              <p>{t("goals.dec2")}</p>
             </div>
             <div className="part">
               <h2>{t("goals.title3")}</h2>
               <p>
-              {t("goals.dec31")}
-                <br />
+                {t("goals.dec31")}
+                <span>{t("goals.dec311")}</span>
+              </p>
+              <p>
                 {t("goals.dec32")}
-                <br />
+                <span>{t("goals.dec322")}</span>
+              </p>
+
+              <p>
                 {t("goals.dec33")}
+                <span>{t("goals.dec333")}</span>
               </p>
             </div>
             <div className="part">
               <h2>{t("goals.title4")}</h2>
-              <p>
-              {t("goals.dec4")}
-              </p>
+              <p>{t("goals.dec4")}</p>
             </div>
           </div>
         </div>
@@ -123,9 +121,8 @@ export default function Home({params}) {
           </div>
         </div>
       </section>
-     
-<Questions lang={params.locale}/>
 
+      <Questions lang={params.locale} />
     </main>
   );
 }

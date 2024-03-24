@@ -665,11 +665,14 @@ footer .content .part2 .part.mapLocation ul li a {
   flex: 1;
   min-width: 500px;
   position: relative;
+  height: 800px;
 }
 .app .content .part1 img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
+  height: 100%;
+  object-position: center;
 }
 .app .content .part2 {
   flex: 1;
@@ -730,6 +733,9 @@ footer .content .part2 .part.mapLocation ul li a {
 .app .content .part2 ul li a svg {
 }
 @media (max-width: 992px) {
+  .app .content .part1 {
+    height: 524px;
+  }
   .app .content .part1 {
     flex: 0;
   }
@@ -811,7 +817,7 @@ footer .content .part2 .part.mapLocation ul li a {
   width: 100%;
   transition: 0.3s;
 }
-html[dir=ltr] .header .content .boxImg {
+html[dir="ltr"] .header .content .boxImg {
   transform: rotateY(180deg);
 }
 .header .content .boxImg img {
@@ -898,9 +904,8 @@ html[dir=ltr] .header .content .boxImg {
 }
 @media (max-width: 1200px) {
   .header .content {
-    
     gap: 20px;
-}
+  }
 }
 @media (max-width: 992px) {
   .header .content .img {
@@ -913,21 +918,20 @@ html[dir=ltr] .header .content .boxImg {
   }
   header .content h1 {
     font-size: 40px;
-    
+
     line-height: 60px;
-  
+
     margin-bottom: 14px;
-}
-.header .content p {
-  font-size: 20px;
-  line-height: 32px;
- 
-}
+  }
+  .header .content p {
+    font-size: 20px;
+    line-height: 32px;
+  }
 }
 @media (max-width: 768px) {
   .header {
     padding-bottom: 12px;
-}
+  }
   .header .content .dec {
     padding: 0px 6px;
   }
@@ -2601,8 +2605,11 @@ form .partImgFile .partImg svg:hover {
   width: 50px;
   border-radius: 100%;
   position: relative;
-  transform: rotate3d(1, 1, 4, -211deg);
+  transform: rotate3d(1, 1, 5, -180deg) translateY(-50%);
+  right: 35%;
+  top: 42%;
 }
+
 
 .ring {
   position: absolute;
@@ -2639,6 +2646,37 @@ form .partImgFile .partImg svg:hover {
     transform: scale(2.75);
     opacity: 0;
   }
+}
+@media (max-width: 2560px) {
+  .pulse {
+    
+  }
+}
+@media (max-width: 1400px) {
+  .pulse {
+    
+  }
+}
+@media (max-width: 1200px) {
+  .pulse {
+    right: 32%;
+
+  }
+}
+@media (max-width: 768px) {
+  .pulse {
+
+    zoom: 0.8;
+  }
+}
+@media (max-width: 430px) {
+  .pulse {
+    right: 32%;
+    
+  }
+  .app .content .part1 {
+    height: 416px;
+}
 }
 /*end*/
 
@@ -2759,9 +2797,13 @@ html[dir="ltr"] .mantine-Notification-root {
 }
 .goals .content .part p {
   color: white;
-  font-family: "cairoL";
+  font-family: "cairoB";
   font-size: 22px;
   line-height: 42px;
+  margin-bottom: 2px;
+}
+.goals .content .part p span {
+  font-family: "cairoL";
 }
 @media (max-width: 1000px) {
   .goals .content {
@@ -2805,12 +2847,12 @@ html[dir="ltr"] .mantine-Notification-root {
     padding: 20px 0px;
   }
 }
-.mantine-LoadingOverlay-root{
+.mantine-LoadingOverlay-root {
   position: fixed;
 }
-.mantine-PasswordInput-error{
+.mantine-PasswordInput-error {
   display: none;
 }
-.mantine-Select-error{
+.mantine-Select-error {
   display: none;
 }
