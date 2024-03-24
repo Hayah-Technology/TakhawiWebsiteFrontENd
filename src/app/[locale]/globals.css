@@ -660,6 +660,7 @@ footer .content .part2 .part.mapLocation ul li a {
 .app .content {
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 .app .content .part1 {
   flex: 1;
@@ -2610,7 +2611,7 @@ form .partImgFile .partImg svg:hover {
   width: 50px;
   border-radius: 100%;
   position: absolute;
-  transform: rotate3d(1, 1, 5, -180deg) translateY(-50%);
+  transform: translateY(25%);
   left: 60%;
   top: 36%;
   z-index: 0;
