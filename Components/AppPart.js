@@ -12,6 +12,7 @@ function AppPart() {
     const po = axios
       .get("https://dashboard.takhawe.com/api/home")
       .then((res) => {
+        console.log(res);
         setAppData1(res.data.titles.google_play_link)
         setAppData2(res.data.titles.app_store_link)
       })
@@ -28,11 +29,11 @@ function AppPart() {
         <div className="content">
           
           <div className="part1">
-          <div class="pulse">
-            <div class="ring"></div>
-            <div class="ring"></div>
-            <div class="ring"></div>
-            <div class="ring"></div>
+          <div className="pulse">
+            <div className="ring"></div>
+            <div className="ring"></div>
+            <div className="ring"></div>
+            <div className="ring"></div>
           </div> 
             <img src="/images/AppImg.png" alt="app" />
           </div>

@@ -2608,8 +2608,8 @@ form .partImgFile .partImg svg:hover {
   transform: rotate3d(1, 1, 5, -180deg) translateY(-50%);
   right: 35%;
   top: 42%;
+  z-index: 50;
 }
-
 
 .ring {
   position: absolute;
@@ -2649,34 +2649,29 @@ form .partImgFile .partImg svg:hover {
 }
 @media (max-width: 2560px) {
   .pulse {
-    
   }
 }
 @media (max-width: 1400px) {
   .pulse {
-    
   }
 }
 @media (max-width: 1200px) {
   .pulse {
     right: 32%;
-
   }
 }
 @media (max-width: 768px) {
   .pulse {
-
     zoom: 0.8;
   }
 }
 @media (max-width: 430px) {
   .pulse {
     right: 32%;
-    
   }
   .app .content .part1 {
     height: 416px;
-}
+  }
 }
 /*end*/
 
