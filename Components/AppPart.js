@@ -45,7 +45,7 @@ function AppPart() {
                 <a href={AppData1?AppData1['en']:"#"}>
                   <div className="dec">
                     <p>
-                      تحميل من متجر
+                    {t("app.from")}
                       <br />
                       <span>Google Play </span>
                     </p>
@@ -80,7 +80,7 @@ function AppPart() {
                 <a href={AppData2?AppData2['en']:"#"}>
                   <div className="dec">
                     <p>
-                      تحميل من متجر
+                    {t("app.from")}
                       <br />
                       <span>App Store </span>
                     </p>

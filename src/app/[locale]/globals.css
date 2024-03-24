@@ -667,6 +667,10 @@ footer .content .part2 .part.mapLocation ul li a {
   position: relative;
   height: 800px;
 }
+html[dir=ltr] .app .content .part1 {
+  transform: rotateY(180deg);
+  
+}
 .app .content .part1 img {
   max-width: 100%;
   height: auto;
@@ -948,13 +952,13 @@ html[dir="ltr"] .header .content .boxImg {
   .header .content h1 {
     font-size: 30px;
     line-height: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     text-align: center;
   }
   .header .content p {
     text-align: center;
     font-size: 18px;
-    line-height: 30px;
+    line-height: 28px;
     max-width: 98%;
   }
 }
@@ -2608,9 +2612,11 @@ form .partImgFile .partImg svg:hover {
   transform: rotate3d(1, 1, 5, -180deg) translateY(-50%);
   right: 35%;
   top: 42%;
-  z-index: 50;
 }
-
+html[dir=ltr] .pulse{
+  left: 60%;
+  right: auto;
+}
 .ring {
   position: absolute;
   background-color: inherit;
@@ -2647,17 +2653,14 @@ form .partImgFile .partImg svg:hover {
     opacity: 0;
   }
 }
-@media (max-width: 2560px) {
-  .pulse {
-  }
-}
-@media (max-width: 1400px) {
-  .pulse {
-  }
-}
+
 @media (max-width: 1200px) {
   .pulse {
     right: 32%;
+  }
+  html[dir=ltr] .pulse{
+    left: 57%;
+    right: auto;
   }
 }
 @media (max-width: 768px) {
@@ -2668,6 +2671,10 @@ form .partImgFile .partImg svg:hover {
 @media (max-width: 430px) {
   .pulse {
     right: 32%;
+  }
+  html[dir="ltr"] .pulse{
+    left: 56%;
+    right: auto;
   }
   .app .content .part1 {
     height: 416px;

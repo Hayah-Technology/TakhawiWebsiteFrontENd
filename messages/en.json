@@ -26,7 +26,8 @@
     },
     "app": {
       "title": "Download Takhawy app now!",
-      "dec": "Effortless car sharing: Easily book and pay with our car sharing app, which offers a diverse fleet, real-time GPS tracking, and secure transactions."
+      "dec": "Effortless car sharing: Easily book and pay with our car sharing app, which offers a diverse fleet, real-time GPS tracking, and secure transactions.",
+      "from":"Download From"
     },
     "who": {
       "title1": "Who Takhawy",
