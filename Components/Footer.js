@@ -3,8 +3,10 @@ import { useTranslations } from "next-intl";
 import { Link } from "../src/navigation";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import logo from "../public/images/logo.png";
+import Image from "next/image";
 
-function Footer({locale}) {
+function Footer({ locale }) {
   console.log(locale);
   const t = useTranslations("home.footer");
   const [Links, setLinks] = useState([]);
@@ -29,91 +31,12 @@ function Footer({locale}) {
         <div className="content">
           <div className="part1">
             <a href="" className="footerLogo">
-              <svg
-                width="154"
-                height="122"
-                viewBox="0 0 154 122"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24.1761 111.213C15.2843 110.544 4.72368 99.2362 3.95147 95.0336C3.17925 90.8309 3.95147 76.8314 3.95147 76.8314C0.748509 37.3791 8.681 26.6755 41.0301 28.9662C98.7379 28.9662 118.109 30.3145 120.581 30.9886C135.252 37.1502 138.619 43.9183 138.783 59.9774C150.761 67.3016 152.278 72.3529 150.244 82.2246C151.531 99.6519 149.273 107.916 122.603 111.213M95.6368 109.865C77.2076 109.338 51.1424 109.865 51.1424 109.865"
-                  stroke="#5A42E6"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M41.03 46.8315H108.449"
-                  stroke="#5A42E6"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M39.0068 25.5952C38.4574 9.13926 41.8027 4.06754 54.5124 2.67383V8.06709C45.4218 8.85477 43.4182 12.9423 44.4001 25.5952V30.9884H39.0068C37.9282 30.9884 38.5574 27.3929 39.0068 25.5952Z"
-                  fill="#5A42E6"
-                  stroke="#5A42E6"
-                  strokeWidth="0.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M57.2081 4.69629L86.871 4.69629"
-                  stroke="#5A42E6"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M109.114 24.9214C109.664 8.46543 103.622 3.39371 90.912 2L90.2378 8.06742C99.3285 8.8551 104.703 12.2685 103.721 24.9214V30.3146H109.114C110.193 30.3146 109.564 26.7191 109.114 24.9214Z"
-                  fill="#5A42E6"
-                  stroke="#5A42E6"
-                  strokeWidth="0.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M41.03 62.6738H108.449"
-                  stroke="#5A42E6"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M41.03 77.5054H108.449"
-                  stroke="#5A42E6"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M53.3537 105.82C53.3537 113.28 47.0244 119.5 38.9997 119.5C30.9751 119.5 24.6458 113.28 24.6458 105.82C24.6458 98.36 30.9751 92.1401 38.9997 92.1401C47.0244 92.1401 53.3537 98.36 53.3537 105.82Z"
-                  stroke="#5A42E6"
-                  strokeWidth="5"
-                />
-                <path
-                  d="M53.3537 105.82C53.3537 113.28 47.0244 119.5 38.9997 119.5C30.9751 119.5 24.6458 113.28 24.6458 105.82C24.6458 98.36 30.9751 92.1401 38.9997 92.1401C47.0244 92.1401 53.3537 98.36 53.3537 105.82Z"
-                  stroke="#5A42E6"
-                  strokeWidth="5"
-                />
-                <path
-                  d="M26.861 111.888C25.16 106.338 24.3423 103.228 28.2094 97.7302C32.9133 93.6366 37.6476 93.0111 41.0183 93.6853"
-                  stroke="#5A42E6"
-                  strokeWidth="0.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M123.472 105.82C123.472 113.28 117.143 119.5 109.118 119.5C101.094 119.5 94.7644 113.28 94.7644 105.82C94.7644 98.36 101.094 92.1401 109.118 92.1401C117.143 92.1401 123.472 98.36 123.472 105.82Z"
-                  stroke="#5A42E6"
-                  strokeWidth="5"
-                />
-                <path
-                  d="M123.472 105.82C123.472 113.28 117.143 119.5 109.118 119.5C101.094 119.5 94.7644 113.28 94.7644 105.82C94.7644 98.36 101.094 92.1401 109.118 92.1401C117.143 92.1401 123.472 98.36 123.472 105.82Z"
-                  stroke="#5A42E6"
-                  strokeWidth="5"
-                />
-                <path
-                  d="M117.81 96.8373C121.202 101.548 122.974 104.231 121.076 110.679C117.934 116.065 113.651 118.177 110.242 118.62"
-                  stroke="#5A42E6"
-                  strokeWidth="0.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-
+              <Image
+                width={112.63}
+                height={110}
+                src={logo}
+                className="h-[80px] lg:h-[110px] w-auto logoNav"
+              />
               <h2>{t("name")}</h2>
             </a>
             <p>{t("dec")}</p>
@@ -249,7 +172,7 @@ function Footer({locale}) {
               <ul>
                 <li>
                   <a href="mailto:takhawy@gmail.com">
-                   {Links?.address?Links.address[locale]:""}
+                    {Links?.address ? Links.address[locale] : ""}
                   </a>
                 </li>
               </ul>
