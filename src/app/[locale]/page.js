@@ -117,7 +117,7 @@ export default function Home({ params }) {
             <h2>{t("location.title")}</h2>
           </div>
           <div className="part2">
-            <img src="/images/location.png" alt="location" />
+            <img src="/images/location.gif" alt="location" />
           </div>
         </div>
       </section>
