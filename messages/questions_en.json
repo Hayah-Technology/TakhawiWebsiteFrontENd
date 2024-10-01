@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "question": "How can I join the Takhawy app?",
+            "answer": "You can join Takhawy by downloading the app from your device's app store, then creating an account using your email or phone number. After that, you can set up your profile and start looking for available trips or offer your own trips."
+        },
+        {
+            "id": 2,
+            "question": "Can I make money using Takhawy?",
+            "answer": "Yes, if you are a driver, you can make money by sharing your trips with passengers who are heading to the same destination, helping you cover your expenses or earn extra profit."
+        },
+        {
+            "id": 3,
+            "question": "How can I ensure that my trip goes as planned?",
+            "answer": "By maintaining constant communication with passengers and drivers through the app, you can make sure everyone is aware of the plan. You can also take advantage of real-time tracking and automatic updates to ensure everything goes smoothly according to the scheduled plan."
+        },
+        {
+            "id": 4,
+            "question": "Can I choose the passengers I want to travel with?",
+            "answer": "Yes, you can browse potential passengers' profiles and check their ratings before accepting any requests to join your trip. This allows you to choose people you feel comfortable traveling with and ensures a pleasant experience for everyone."
+        }
+    ]
+}

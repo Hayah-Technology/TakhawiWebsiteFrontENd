@@ -121,7 +121,6 @@ export default function Home({ params }) {
           </div>
         </div>
       </section>
-
       <Questions lang={params.locale} />
     </main>
   );
