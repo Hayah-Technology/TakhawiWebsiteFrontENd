@@ -5,26 +5,41 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import logo from "../public/images/logo.png";
 import Image from "next/image";
+import { FaSnapchatGhost } from "react-icons/fa";
 
 function Footer({ locale }) {
   console.log(locale);
   const t = useTranslations("home.footer");
-  const [Links, setLinks] = useState([]);
-  const [Address, setAddress] = useState([]);
+  // const [Links, setLinks] = useState([
 
-  const handelData = () => {
-    const po = axios
-      .get("https://dashboard.takhawe.com/api/home")
-      .then((res) => {
-        setLinks(res.data.titles);
-      })
-      .catch((res) => {
-        console.log(res);
-      });
-  };
-  useEffect(() => {
-    handelData();
-  }, []);
+  // ]);
+  const [Links, setLinks] = useState({
+    youtube_link: "",
+    linkedin_link: "",
+    instagram_link:
+      "https://www.instagram.com/takhawe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    twitter_link: "https://x.com/takhawe",
+    snapchat_link: "https://snapchat.com/t/ucDKGzRG",
+    address: "حائل, شارع الأمير عبدالعزيز بن سعد",
+    address_en: "Hail, Prince Abdulaziz bin Saud Street.",
+  });
+  console.log(Links);
+
+  // const [Address, setAddress] = useState([]);
+
+  // const handelData = () => {
+  //   const po = axios
+  //     .get("https://dashboard.takhawe.com/api/home")
+  //     .then((res) => {
+  //       setLinks(res.data.titles);
+  //     })
+  //     .catch((res) => {
+  //       console.log(res);
+  //     });
+  // };
+  // useEffect(() => {
+  //   handelData();
+  // }, []);
   return (
     <footer>
       <div className="con">
@@ -41,7 +56,7 @@ function Footer({ locale }) {
             </a>
             <p>{t("dec")}</p>
             <ul>
-              <li>
+              {/* <li>
                 <a href={Links?.youtube_link ? Links.youtube_link["en"] : "#"}>
                   <svg
                     width="20"
@@ -56,8 +71,8 @@ function Footer({ locale }) {
                     />
                   </svg>
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a
                   href={Links?.linkedin_link ? Links.linkedin_link["en"] : "#"}
                 >
@@ -74,13 +89,14 @@ function Footer({ locale }) {
                     />
                   </svg>
                 </a>
-              </li>
+              </li> */}
               <li>
-                <a
+                {/* <a
                   href={
                     Links?.instagram_link ? Links.instagram_link["en"] : "#"
                   }
-                >
+                > */}
+                <a href={Links?.instagram_link}>
                   <svg
                     width="18"
                     height="18"
@@ -98,7 +114,8 @@ function Footer({ locale }) {
                 </a>
               </li>
               <li>
-                <a href={Links?.twitter_link ? Links.twitter_link["en"] : "#"}>
+                {/* <a href={Links?.twitter_link ? Links.twitter_link["en"] : "#"}> */}
+                <a href={Links?.twitter_link}>
                   <svg
                     width="18"
                     height="16"
@@ -114,21 +131,12 @@ function Footer({ locale }) {
                 </a>
               </li>
               <li>
-                <a
+                {/* <a
                   href={Links?.facebook_link ? Links.facebook_link["en"] : "#"}
-                >
-                  <svg
-                    width="10"
-                    height="18"
-                    viewBox="0 0 10 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6.46384 18V9.78936H9.35853L9.79192 6.5895H6.46376V4.54653C6.46376 3.6201 6.73394 2.98879 8.12938 2.98879L9.90907 2.98799V0.126072C9.60126 0.0871459 8.54474 0 7.31576 0C4.74974 0 2.993 1.49118 2.993 4.22972V6.5895H0.0908813V9.78936H2.993V17.9999H6.46384V18Z"
-                      fill="white"
-                    />
-                  </svg>
+                > */}
+                <a href={Links?.snapchat_link}>
+                <FaSnapchatGhost color="white"/>
+
                 </a>
               </li>
             </ul>
@@ -137,9 +145,9 @@ function Footer({ locale }) {
             <div className="part">
               <h3>{t("title1")}</h3>
               <ul>
-                <li>
+                {/* <li>
                   <Link href="/jobs">{t("job")}</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/investors">{t("investor")}</Link>
                 </li>
@@ -163,7 +171,7 @@ function Footer({ locale }) {
               <h3>{t("title3")}</h3>
               <ul>
                 <li>
-                  <a href="mailto:takhawy@gmail.com">takhawy@gmail.com </a>
+                  <a href="mailto:Takhawe@takhawe.com">Takhawe@takhawe.com</a>
                 </li>
               </ul>
             </div>
@@ -171,8 +179,9 @@ function Footer({ locale }) {
               <h3>{t("title4")}</h3>
               <ul>
                 <li>
-                  <a href="mailto:takhawy@gmail.com">
-                    {Links?.address ? Links.address[locale] : ""}
+                  <a href="mailto:Takhawe@takhawe.com">
+                    {/* {Links?.address ? Links.address[locale] : ""} */}
+                    {locale === "ar" ? Links?.address : Links?.address_en}
                   </a>
                 </li>
               </ul>

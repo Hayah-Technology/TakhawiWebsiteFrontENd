@@ -13,7 +13,7 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Takhawy",
+  title: "Takhawe",
   description: "One Trip, Two Joys , Save And Deliver!",
 };
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children, params }) {
   const messages = useMessages();
   return (
     <html lang={params.locale} dir={params.locale==="ar"?"rtl":"ltr"} >
-        <link rel="icon" href="/images/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/logo.png" sizes="any" />
       <body className={inter.className}>
         <Script async src="/js/jquery-3.6.1.min.js" />
         <NextIntlClientProvider locale={params.locale} messages={messages}>

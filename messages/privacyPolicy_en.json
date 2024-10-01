@@ -1,0 +1,258 @@
+{
+  "privacy_polices": [
+    {
+      "id": 1,
+      "title": "Overview",
+      "definitions": [
+        "The Takhawy app is concerned with user information and is committed to their privacy, displaying only basic information for communication with the registered captains on the app. Your contact details will not be available on any search engine. You can remove your contact details at any time by deleting all your information on the Takhawy app."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Website Privacy Policy",
+      "definitions": [
+        "Takhawy is owned by us and is referred to as 'we' in this privacy policy. By using this website, you agree to this privacy policy. This policy relates to the collection and use of personal information that you may provide through your behavior on the website. We reserve the right to modify or remove parts of this privacy policy at any time. This privacy policy applies in addition to any other terms and conditions. We make no representations about third-party websites that may be linked to our site. We recognize the importance of protecting the privacy of the information collected about visitors to our site."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Personal Information",
+      "definitions": [
+        "Personal information about our website visitors is collected when voluntarily provided, such as information we may need to provide you with our services or respond to your inquiries. This policy protects your personal information in accordance with applicable privacy laws in Saudi Arabia."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Use of Information",
+      "definitions": [
+        "The personal information you provide is used for the purpose for which it was collected or for related purposes. For example, we compile your contact information to provide other users with ways to contact you when promoting shared trips or displaying trip information on social media."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Retention of Personal Data and Account",
+      "definitions": [
+        "Once you download the app, you agree to the use of your personal information for various purposes such as booking, registration, and inquiries from official entities, knowing that the data will be retained as long as you use the platform."
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Account and All Data Deletion in the Following Cases:",
+      "definitions": [
+        "1. After 3 years if the account is deleted by you.",
+        "2. After 5 years of the last login without any update.",
+        "3. After 5 years of your account being suspended due to unpaid dues.",
+        "4. If the account is blocked by the platform or official entities."
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Disclaimer",
+      "definitions": [
+        "The Takhawy platform is provided as is. Takhawy disclaims any warranties not expressly stated in this agreement, such as warranties regarding the quality, suitability, or safety of the driver. You must agree that all risks related to your use of the Takhawy platform are your personal responsibility."
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Disclosure of Information",
+      "definitions": [
+        "We may disclose personal information in special cases if necessary for legal purposes or to protect our rights, property, or other users."
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Security",
+      "definitions": [
+        "We strive to ensure the security of personal information provided to our sites and continuously update our security procedures. However, complete security cannot be guaranteed when data is transmitted over the internet, but we take all reasonable steps to protect information once received."
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Cookies",
+      "definitions": [
+        "Cookies are data that a website transfers to an individual's hard drive for record-keeping purposes. Cookies, which are industry-standard and used by most websites, including those operated by us, facilitate continued access to and use of the site. They allow us to customize the website according to your needs. If you do not wish to collect information through the use of cookies, there is a simple procedure in most browsers that allows you to refuse or reject the cookie feature. However, it should be noted that cookies may be necessary to provide you with some features of our online services."
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Access to Information",
+      "definitions": [
+        "We are committed to ensuring the accuracy of the information we hold about you. You can contact us to update your information if it is incorrect."
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Links to Other Sites",
+      "definitions": [
+        "We may provide links to external websites. We are not responsible for the content or privacy practices of those sites."
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Modification of Terms, Conditions, and Reservations",
+      "definitions": [
+        "Takhawy reserves the right to modify or add any terms or updates from time to time without prior notice. Your continued use of the app after the modifications means your acceptance of the new terms."
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Complaints",
+      "definitions": [
+        "If you have any complaints, you can contact us through the available communication channels in the app."
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Contact Methods",
+      "definitions": [
+        "If you wish to contact us regarding our privacy practices or have inquiries related to your personal data, you can use the communication methods available in the app."
+      ]
+    }
+  ],
+  "conditions": {
+    "titles": {
+      "terms_and_conditions_desc": "Terms of Use for the Takhawy App"
+    },
+    "terms_and_conditions": [
+      {
+        "id": 1,
+        "title": "Agreement",
+        "definitions": [
+          "Please ensure that you read and understand all of these terms and conditions carefully before using the Takhawy app and the features contained therein. Your completion of the registration process or continued use of the app or any of our services constitutes your agreement to comply with these procedures and terms and conditions, creating a contractual relationship between you and the Takhawy app that grants you a license from the Takhawy app to use and benefit from the app. This authorization for use and benefit from the app is specific to you as a user of the app and does not entitle you to sell the app or any features or technologies contained therein. If you find any of these terms and conditions unacceptable, do not consent to use the app or benefit from its features.",
+          "Your choice to agree to these terms and conditions should be treated as a binding and legal agreement between you and any of the features offered or used in the app. The app management has the right to terminate this agreement that pertains to you immediately or to suspend the provision of Takhawy services or prevent you from accessing it or any part thereof, at any time and for any reason without prior notice. Additional terms may apply to this agreement in case of conflict regarding the services provided. The app management may amend this agreement from time to time as necessary. Amendments take effect following the publication of the updated agreement by the Takhawy app on the app platform or the publication of modified policies or additional terms related to the service provided.",
+          "Takhawy may provide necessary information, including your contact information or any information requested officially and legally, to relevant parties to settle claims or insurance companies in the event of a complaint or dispute, which may involve an incident occurring between you and an external service provider where this information or data is necessary to resolve the dispute or complaint."
+        ]
+      },
+      {
+        "id": 2,
+        "title": "App Percentage and Fees",
+        "definitions": [
+          "- The app's percentage for the captain is 20% of the trip value.",
+          "- The passenger fee is fixed at 18 Riyals per trip."
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Definitions",
+        "definitions": [
+          "All terms defined and sent in these terms and conditions will have the meanings assigned to them below:",
+          "1. In the case of bringing others:",
+          "   - The driver has the right to cancel the trip if the customer brings additional people, and the reason for cancellation will be specified as 'bringing others.'",
+          "   - A notification will appear for the driver requesting them to wait for 20 minutes until they can communicate with the customer.",
+          "   - If it turns out that the customer has indeed brought additional people, 25 Riyals will be deducted from the customer and transferred to the driver.",
+          "   - If it turns out that the customer did not bring additional people, the 25 Riyals will be deducted from the driver.",
+          "2. Canceling the trip while in transit:",
+          "   - If the customer cancels the trip while in transit, a notification will appear for the driver to confirm the cancellation.",
+          "   - The amount paid in the app will be suspended until a final decision is made by the management, either to return the amount to the customer or the driver, depending on the actions taken."
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Account",
+        "definitions": [
+          "Refers to the user account on the Takhawy app that allows the user to use the app."
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Private Trip",
+        "definitions": [
+          "- The trip can be canceled free of charge half an hour before the start time.",
+          "- A delay of 15 minutes is allowed after the trip start time, after which the cancellation is considered as if it were after the scheduled time."
+        ]
+      },
+      {
+        "id": 6,
+        "title": "In the case of a regular trip:",
+        "definitions": [
+          "- For passengers: If the passenger does not show up, the amount will be refunded to them with a deduction of 25 Riyals.",
+          "- For the driver: If the driver does not show up, the passengers will be compensated by waiving the app fees on the next trip, and 25 Riyals will be deducted from the driver."
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Ban",
+        "definitions": [
+          "If cancellation or negative ratings occur three times, the user will be banned."
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Application",
+        "definitions": [
+          "Refers to the Takhawy mobile application, including any updates provided from time to time."
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Registration Data",
+        "definitions": [
+          "Includes name, phone number used, email, age, and other information that the app may request from time to time, which is provided by users upon registration on the mobile app or otherwise."
+        ]
+      },
+      {
+        "id": 10,
+        "title": "User",
+        "definitions": [
+          "Means individuals who have created an account to use the app. 'You' or 'your' or 'yourself' refers to the user utilizing the app."
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Seat Price",
+        "definitions": [
+          "Means the amount you are required to pay for using the app, excluding any taxes or additional service fees."
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Total Price",
+        "definitions": [
+          "Means the amount you are required to pay for using the app, including any taxes or additional service fees."
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Working Days",
+        "definitions": [
+          "Means the official working hours of employees at Takhawy from Sunday to Thursday, or any day when banks in Saudi Arabia are open."
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Balance",
+        "definitions": [
+          "Means the value we keep in your wallet on the app, which you can use directly to pay the amount due for booking through available booking channels, which may change from time to time."
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Traveler",
+        "definitions": [
+          "Means any person who makes a reservation confirmed by the captain for any vehicle offering its trips through the app."
+        ]
+      },
+      {
+        "id": 16,
+        "title": "Intellectual Property Rights",
+        "definitions": [
+          "The ownership rights of the Takhawy app belong to the Takhrir Company for Information Systems, which operates it on its behalf. This includes all visual interfaces, graphics, designs, information, content, computer code for the app, software used, services, and all other elements of the Takhawy app, and all intellectual property rights and rights related to these elements are exclusively owned by Takhawy or the entities authorized by Takhawy. All trademarks, service marks, and trade names are owned by Takhawy and its affiliates and partners in providing transportation services or other providers."
+        ]
+      },
+      {
+        "id": 17,
+        "title": "Trust and Credibility",
+        "definitions": [
+          "The Takhawy app derives its trust and credibility from using all documents and information imposed by the Ministry of Transport or the Knowledge Portal through the booking and distribution service request system that is linked and integrated with the technical system in the Public Transport Authority (Wasal Platform). Data is verified to provide complete information about the vehicle's route, driver name, plate number, and others. This trust increases with higher ratings and comments from travelers and vehicle owners, giving an impression of the person you will deal with as a reliable and safe individual. In case of any complaint or report, it is verified through the communication means registered in the customer's account, and appropriate action is taken. The app does its best to recover any lost items."
+        ]
+      },
+      {
+        "id": 18,
+        "title": "User Accounts",
+        "definitions": [
+          "The 'Takhawy' app relies on the participation between the vehicle owner and the person wishing to travel to the same destination to achieve the goals of both parties in terms of enjoyment of travel, social interaction, financial return, speed, safety, and credibility. To use most of the services of the 'Takhawy' app, you must register for an effective personal user account and maintain it. Registering an account requires providing some personal information, such as name, address, mobile phone number, gender, age, and national ID number. The user must be aged between 18 and 65 years. Users must maintain the accuracy and validity of their account information, and failure to comply may result in the inability to access the 'Takhawy' platform, including requests for access to personal information or subscribing to create or..."
+        ]
+      }
+    ]
+  }
+}

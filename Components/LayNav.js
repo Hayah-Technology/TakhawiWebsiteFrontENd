@@ -51,14 +51,14 @@ function LayNav({ locale }) {
                   {t("home")}
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link
                   className={`nav-link ${pathname === "/jobs" ? "active" : ""}`}
                   href="/jobs"
                 >
                   {t("job")}
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
