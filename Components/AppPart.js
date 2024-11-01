@@ -14,7 +14,7 @@ function AppPart() {
       .then((res) => {
         console.log(res);
         setAppData1(res.data.titles.google_play_link)
-        setAppData2("https://apps.apple.com/sa/app/takhawi/id6461161085")
+        setAppData2(res.data.titles.app_store_link)
       })
       .catch((res) => {
         console.log(res);
@@ -42,7 +42,7 @@ function AppPart() {
             <p>{t("app.dec")}</p>
             <ul>
               <li>
-                <a href={AppData1?AppData1['en']:"#"}>
+                <a href="https://apps.apple.com/sa/app/takhawi/id6461161085">
                   <div className="dec">
                     <p>
                     {t("app.from")}
@@ -77,7 +77,7 @@ function AppPart() {
                 </a>
               </li>
               <li>
-                <a href={AppData2?AppData2['en']:"#"}>
+                <a href="https://apps.apple.com/sa/app/takhawi/id6461161085">
                   <div className="dec">
                     <p>
                     {t("app.from")}
