@@ -14,7 +14,7 @@ function AppPart() {
       .then((res) => {
         console.log(res);
         setAppData1(res.data.titles.google_play_link)
-        setAppData2(res.data.titles.app_store_link)
+        setAppData2("https://apps.apple.com/sa/app/takhawi/id6461161085")
       })
       .catch((res) => {
         console.log(res);
